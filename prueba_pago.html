@@ -1,0 +1,831 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//ES">
+<!-- saved from url=(0072)https://qa2.checkout.payulatam.com/ppp-web-gateway-payu/test/prueba_pago -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<link rel="shortcut icon" href="https://qa2.checkout.payulatam.com/ppp-web-gateway-payu/public/dist/images/favicon.ico?b=2" type="image/vnd.microsoft.icon">
+<title></title>
+<meta name="description" content="">
+<meta name="viewport" content="width=device-width">
+<script async="" src="./prueba_pago_files/analytics.js"></script><script src="./prueba_pago_files/jquery.min.js"></script>
+<link rel="stylesheet" href="./prueba_pago_files/checkout.css">
+<link rel="stylesheet" href="./prueba_pago_files/icons.css">
+<script language="JavaScript">
+    var hexcase = 0;
+    var b64pad = "";
+    var chrsz = 8;
+
+    function hex_md5(s) {
+        return binl2hex(core_md5(str2binl(s), s.length * chrsz));
+    }
+
+    function b64_md5(s) {
+        return binl2b64(core_md5(str2binl(s), s.length * chrsz));
+    }
+
+    function str_md5(s) {
+        return binl2str(core_md5(str2binl(s), s.length * chrsz));
+    }
+
+    function hex_hmac_md5(key, data) {
+        return binl2hex(core_hmac_md5(key, data));
+    }
+
+    function b64_hmac_md5(key, data) {
+        return binl2b64(core_hmac_md5(key, data));
+    }
+
+    function str_hmac_md5(key, data) {
+        return binl2str(core_hmac_md5(key, data));
+    }
+
+    function md5_vm_test() {
+        return hex_md5("abc") == "900150983cd24fb0d6963f7d28e17f72";
+    }
+
+    function core_md5(x, len) {
+        x[len >> 5] |= 0x80 << ((len) % 32);
+        x[(((len + 64) >>> 9) << 4) + 14] = len;
+
+        var a = 1732584193;
+        var b = -271733879;
+        var c = -1732584194;
+        var d = 271733878;
+
+        for (var i = 0; i < x.length; i += 16) {
+            var olda = a;
+            var oldb = b;
+            var oldc = c;
+            var oldd = d;
+
+            a = md5_ff(a, b, c, d, x[i + 0], 7, -680876936);
+            d = md5_ff(d, a, b, c, x[i + 1], 12, -389564586);
+            c = md5_ff(c, d, a, b, x[i + 2], 17, 606105819);
+            b = md5_ff(b, c, d, a, x[i + 3], 22, -1044525330);
+            a = md5_ff(a, b, c, d, x[i + 4], 7, -176418897);
+            d = md5_ff(d, a, b, c, x[i + 5], 12, 1200080426);
+            c = md5_ff(c, d, a, b, x[i + 6], 17, -1473231341);
+            b = md5_ff(b, c, d, a, x[i + 7], 22, -45705983);
+            a = md5_ff(a, b, c, d, x[i + 8], 7, 1770035416);
+            d = md5_ff(d, a, b, c, x[i + 9], 12, -1958414417);
+            c = md5_ff(c, d, a, b, x[i + 10], 17, -42063);
+            b = md5_ff(b, c, d, a, x[i + 11], 22, -1990404162);
+            a = md5_ff(a, b, c, d, x[i + 12], 7, 1804603682);
+            d = md5_ff(d, a, b, c, x[i + 13], 12, -40341101);
+            c = md5_ff(c, d, a, b, x[i + 14], 17, -1502002290);
+            b = md5_ff(b, c, d, a, x[i + 15], 22, 1236535329);
+
+            a = md5_gg(a, b, c, d, x[i + 1], 5, -165796510);
+            d = md5_gg(d, a, b, c, x[i + 6], 9, -1069501632);
+            c = md5_gg(c, d, a, b, x[i + 11], 14, 643717713);
+            b = md5_gg(b, c, d, a, x[i + 0], 20, -373897302);
+            a = md5_gg(a, b, c, d, x[i + 5], 5, -701558691);
+            d = md5_gg(d, a, b, c, x[i + 10], 9, 38016083);
+            c = md5_gg(c, d, a, b, x[i + 15], 14, -660478335);
+            b = md5_gg(b, c, d, a, x[i + 4], 20, -405537848);
+            a = md5_gg(a, b, c, d, x[i + 9], 5, 568446438);
+            d = md5_gg(d, a, b, c, x[i + 14], 9, -1019803690);
+            c = md5_gg(c, d, a, b, x[i + 3], 14, -187363961);
+            b = md5_gg(b, c, d, a, x[i + 8], 20, 1163531501);
+            a = md5_gg(a, b, c, d, x[i + 13], 5, -1444681467);
+            d = md5_gg(d, a, b, c, x[i + 2], 9, -51403784);
+            c = md5_gg(c, d, a, b, x[i + 7], 14, 1735328473);
+            b = md5_gg(b, c, d, a, x[i + 12], 20, -1926607734);
+
+            a = md5_hh(a, b, c, d, x[i + 5], 4, -378558);
+            d = md5_hh(d, a, b, c, x[i + 8], 11, -2022574463);
+            c = md5_hh(c, d, a, b, x[i + 11], 16, 1839030562);
+            b = md5_hh(b, c, d, a, x[i + 14], 23, -35309556);
+            a = md5_hh(a, b, c, d, x[i + 1], 4, -1530992060);
+            d = md5_hh(d, a, b, c, x[i + 4], 11, 1272893353);
+            c = md5_hh(c, d, a, b, x[i + 7], 16, -155497632);
+            b = md5_hh(b, c, d, a, x[i + 10], 23, -1094730640);
+            a = md5_hh(a, b, c, d, x[i + 13], 4, 681279174);
+            d = md5_hh(d, a, b, c, x[i + 0], 11, -358537222);
+            c = md5_hh(c, d, a, b, x[i + 3], 16, -722521979);
+            b = md5_hh(b, c, d, a, x[i + 6], 23, 76029189);
+            a = md5_hh(a, b, c, d, x[i + 9], 4, -640364487);
+            d = md5_hh(d, a, b, c, x[i + 12], 11, -421815835);
+            c = md5_hh(c, d, a, b, x[i + 15], 16, 530742520);
+            b = md5_hh(b, c, d, a, x[i + 2], 23, -995338651);
+
+            a = md5_ii(a, b, c, d, x[i + 0], 6, -198630844);
+            d = md5_ii(d, a, b, c, x[i + 7], 10, 1126891415);
+            c = md5_ii(c, d, a, b, x[i + 14], 15, -1416354905);
+            b = md5_ii(b, c, d, a, x[i + 5], 21, -57434055);
+            a = md5_ii(a, b, c, d, x[i + 12], 6, 1700485571);
+            d = md5_ii(d, a, b, c, x[i + 3], 10, -1894986606);
+            c = md5_ii(c, d, a, b, x[i + 10], 15, -1051523);
+            b = md5_ii(b, c, d, a, x[i + 1], 21, -2054922799);
+            a = md5_ii(a, b, c, d, x[i + 8], 6, 1873313359);
+            d = md5_ii(d, a, b, c, x[i + 15], 10, -30611744);
+            c = md5_ii(c, d, a, b, x[i + 6], 15, -1560198380);
+            b = md5_ii(b, c, d, a, x[i + 13], 21, 1309151649);
+            a = md5_ii(a, b, c, d, x[i + 4], 6, -145523070);
+            d = md5_ii(d, a, b, c, x[i + 11], 10, -1120210379);
+            c = md5_ii(c, d, a, b, x[i + 2], 15, 718787259);
+            b = md5_ii(b, c, d, a, x[i + 9], 21, -343485551);
+
+            a = safe_add(a, olda);
+            b = safe_add(b, oldb);
+            c = safe_add(c, oldc);
+            d = safe_add(d, oldd);
+        }
+        return Array(a, b, c, d);
+
+    }
+
+    function md5_cmn(q, a, b, x, s, t) {
+        return safe_add(bit_rol(safe_add(safe_add(a, q), safe_add(x, t)), s), b);
+    }
+
+    function md5_ff(a, b, c, d, x, s, t) {
+        return md5_cmn((b & c) | ((~b) & d), a, b, x, s, t);
+    }
+
+    function md5_gg(a, b, c, d, x, s, t) {
+        return md5_cmn((b & d) | (c & (~d)), a, b, x, s, t);
+    }
+
+    function md5_hh(a, b, c, d, x, s, t) {
+        return md5_cmn(b ^ c ^ d, a, b, x, s, t);
+    }
+
+    function md5_ii(a, b, c, d, x, s, t) {
+        return md5_cmn(c ^ (b | (~d)), a, b, x, s, t);
+    }
+
+    function core_hmac_md5(key, data) {
+        var bkey = str2binl(key);
+        if (bkey.length > 16) bkey = core_md5(bkey, key.length * chrsz);
+
+        var ipad = Array(16),
+            opad = Array(16);
+        for (var i = 0; i < 16; i++) {
+            ipad[i] = bkey[i] ^ 0x36363636;
+            opad[i] = bkey[i] ^ 0x5C5C5C5C;
+        }
+
+        var hash = core_md5(ipad.concat(str2binl(data)), 512 + data.length * chrsz);
+        return core_md5(opad.concat(hash), 512 + 128);
+    }
+
+    function safe_add(x, y) {
+        var lsw = (x & 0xFFFF) + (y & 0xFFFF);
+        var msw = (x >> 16) + (y >> 16) + (lsw >> 16);
+        return (msw << 16) | (lsw & 0xFFFF);
+    }
+
+    function bit_rol(num, cnt) {
+        return (num << cnt) | (num >>> (32 - cnt));
+    }
+
+    function str2binl(str) {
+        var bin = Array();
+        var mask = (1 << chrsz) - 1;
+        for (var i = 0; i < str.length * chrsz; i += chrsz)
+            bin[i >> 5] |= (str.charCodeAt(i / chrsz) & mask) << (i % 32);
+        return bin;
+    }
+
+    function binl2str(bin) {
+        var str = "";
+        var mask = (1 << chrsz) - 1;
+        for (var i = 0; i < bin.length * 32; i += chrsz)
+            str += String.fromCharCode((bin[i >> 5] >>> (i % 32)) & mask);
+        return str;
+    }
+
+    function binl2hex(binarray) {
+        var hex_tab = hexcase ? "0123456789ABCDEF" : "0123456789abcdef";
+        var str = "";
+        for (var i = 0; i < binarray.length * 4; i++) {
+            str += hex_tab.charAt((binarray[i >> 2] >> ((i % 4) * 8 + 4)) & 0xF) +
+                hex_tab.charAt((binarray[i >> 2] >> ((i % 4) * 8)) & 0xF);
+        }
+        return str;
+    }
+
+    function binl2b64(binarray) {
+        var tab = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/";
+        var str = "";
+        for (var i = 0; i < binarray.length * 4; i += 3) {
+            var triplet = (((binarray[i >> 2] >> 8 * (i % 4)) & 0xFF) << 16) | (((binarray[i + 1 >> 2] >> 8 * ((i + 1) % 4)) & 0xFF) << 8) | ((binarray[i + 2 >> 2] >> 8 * ((i + 2) % 4)) & 0xFF);
+            for (var j = 0; j < 4; j++) {
+                if (i * 8 + j * 6 > binarray.length * 32) str += b64pad;
+                else str += tab.charAt((triplet >> 6 * (3 - j)) & 0x3F);
+            }
+        }
+        return str;
+    }
+
+    function utf8Encode(argString) {
+
+        if (argString === null || typeof argString === 'undefined') {
+            return '';
+        }
+
+        var string = (argString + ''); // .replace(/\r\n/g, "\n").replace(/\r/g, "\n");
+        var utftext = '',
+            start, end, stringl = 0;
+
+        start = end = 0;
+        stringl = string.length;
+        for (var n = 0; n < stringl; n++) {
+            var c1 = string.charCodeAt(n);
+            var enc = null;
+
+            if (c1 < 128) {
+                end++;
+            } else if (c1 > 127 && c1 < 2048) {
+                enc = String.fromCharCode(
+                    (c1 >> 6) | 192, (c1 & 63) | 128
+                );
+            } else if ((c1 & 0xF800) != 0xD800) {
+                enc = String.fromCharCode(
+                    (c1 >> 12) | 224, ((c1 >> 6) & 63) | 128, (c1 & 63) | 128
+                );
+            } else { // surrogate pairs
+                if ((c1 & 0xFC00) != 0xD800) {
+                    throw new RangeError('Unmatched trail surrogate at ' + n);
+                }
+                var c2 = string.charCodeAt(++n);
+                if ((c2 & 0xFC00) != 0xDC00) {
+                    throw new RangeError('Unmatched lead surrogate at ' + (n - 1));
+                }
+                c1 = ((c1 & 0x3FF) << 10) + (c2 & 0x3FF) + 0x10000;
+                enc = String.fromCharCode(
+                    (c1 >> 18) | 240, ((c1 >> 12) & 63) | 128, ((c1 >> 6) & 63) | 128, (c1 & 63) | 128
+                );
+            }
+            if (enc !== null) {
+                if (end > start) {
+                    utftext += string.slice(start, end);
+                }
+                utftext += enc;
+                start = end = n + 1;
+            }
+        }
+
+        if (end > start) {
+            utftext += string.slice(start, stringl);
+        }
+
+        return utftext;
+    }
+
+    function initVersion() {
+        var url = "../api/versions";
+
+        $.get(url, function(result) {
+            var options = $("#version");
+            $.each(result, function() {
+                options.append($("<option />").val(this).text(this));
+            });
+        });
+
+    }
+
+    window.onload = function() {
+        initVersion();
+    };
+
+    function generarFirmaMd5() {
+
+        if (document.form1.clave.value == "") {
+            var clave = 1111111111111111;
+        } else {
+            var clave = document.form1.clave.value;
+        }
+        if (document.form1.usuarioId.value == "") {
+            var usuarioId = 2;
+        } else {
+            var usuarioId = document.form1.usuarioId.value;
+        }
+        var refVenta = document.form1.refVenta.value;
+        var valor = document.form1.valor.value;
+        var moneda = document.form1.moneda.value;
+
+        var cadenaAFirmar = clave + "~" + usuarioId + "~" + refVenta + "~" + valor + "~" + moneda;
+
+        alert("Cadena para firmar: " + utf8Encode(cadenaAFirmar));
+
+        document.form1.firma.value = hex_md5(utf8Encode(cadenaAFirmar));
+
+    }
+
+    function generarFirma() {
+        if (document.form1.clave.value == "") {
+            var clave = 1111111111111111;
+        } else {
+            var clave = document.form1.clave.value;
+        }
+        if (document.form1.merchantId.value == "") {
+            var usuarioId = 2;
+        } else {
+            var usuarioId = document.form1.merchantId.value;
+        }
+        var refVenta = document.form1.referenceCode.value;
+        var valor = document.form1.amount.value;
+        var moneda = document.form1.currency.value;
+
+        var iin = document.form1.iin.value;
+        var paymentMethods = document.form1.paymentMethods.value;
+        var shippingValue = document.form1.shippingValue.value;
+
+        var cadenaAFirmar = clave + "~" + usuarioId + "~" + refVenta + "~" + valor + "~" + moneda;
+
+        if (paymentMethods != "") {
+            cadenaAFirmar = cadenaAFirmar + "~" + paymentMethods;
+        }
+
+        if (iin != "") {
+            cadenaAFirmar = cadenaAFirmar + "~" + iin;
+        }
+        
+        if (shippingValue != "") {
+        	cadenaAFirmar = cadenaAFirmar + "~" + shippingValue;
+        }
+
+        alert("Cadena para firmar: " + utf8Encode(cadenaAFirmar));
+
+        var algoritmoFirma = document.getElementById("algoritmo").value;
+        if (algoritmoFirma == "sha") {
+            document.form1.firma.value = hex_sha1(utf8Encode(cadenaAFirmar));
+        } else {
+            document.form1.firma.value = hex_md5(utf8Encode(cadenaAFirmar));
+        }
+    }
+
+    function toggle(chkbox, group) {
+        var visibility = (chkbox.checked) ? "visible" : "hidden";
+        document.getElementById(group).style.visibility = visibility;
+        var display = (chkbox.checked) ? "" : "none";
+        document.getElementById(group).style.display = display;
+    }
+</script></head>
+
+
+
+
+<body leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+<br>
+<!-- Cabezote -->
+<table width="760" border="0" align="center" cellpadding="1" cellspacing="1" bgcolor="#CCCCCC">
+  <tbody><tr>
+    <td align="center" bgcolor="#FFFFFF"> <br>
+      <br>
+      <table width="95%" border="0" align="center" cellpadding="1" cellspacing="1" bgcolor="#CCCCCC">
+        <tbody><tr>
+          <td width="20" align="center" bgcolor="#FFFFFF" class="Bold11Pt">1</td>
+          <td class="Bold11Pt">
+            <table width="95%" border="0" cellspacing="2" cellpadding="2">
+              <tbody><tr>
+                <td class="Bold12Pt">Ingrese los datos para realizar el pago</td>
+              </tr>
+            </tbody></table></td>
+        </tr>
+      </tbody></table>
+      <br>
+      
+      <form id="datos_pago" name="form1" method="post" action="https://qa2.checkout.payulatam.com/ppp-web-gateway-payu/">
+        <table width="95%" border="0" cellpadding="2" cellspacing="2">
+          <tbody><tr>
+            <td align="right">Clave (para Usuario 1 por defecto 1111111111111111) :</td>
+            <td width="53%" class="Rojo12Pt"> <input name="clave" type="text" class="select-70p" value="1111111111111111"></td>
+          </tr>
+          <tr>
+            <td width="30%" align="right">Usuario:</td>
+            <td class="Rojo12Pt"><input name="merchantId" type="text" class="select-70p" value=""></td>
+          </tr>
+          <tr>
+            <td align="right">Cuenta :</td>
+            <td width="53%" class="Rojo12Pt"> <input name="accountId" type="text" class="select-70p" value=""></td>
+          </tr>
+          <tr>
+            <td align="right">Descripción:</td>
+            <td width="53%" class="Rojo12Pt"> <input name="description" type="text" class="select-70p" value=""></td>
+          </tr>
+          <tr>
+            <td align="right">Referencia (Número único que no se
+              debe repetir):</td>
+            <td class="Rojo12Pt"><input name="referenceCode" type="text" class="select-70p" value="Mar 17, 2016 11:20:09 AM"></td>
+          </tr>
+          <tr>
+            <td align="right">Valor:</td>
+            <td class="Rojo12Pt"><input name="amount" type="text" class="select-70p" value=""></td>
+          </tr>
+          <tr>
+            <td align="right">IVA:</td>
+            <td class="Rojo12Pt"><input name="tax" type="text" class="select-70p" id="iva" value=""></td>
+          </tr>
+          <tr>
+            <td align="right">Base devolución IVA:</td>
+            <td class="Rojo12Pt"><input name="taxReturnBase" type="text" class="select-70p" value=""></td>
+          </tr>
+          <tr>
+            <td align="right">Valor adicional:</td>
+            <td class="Rojo12Pt"><input name="additionalValue" type="text" class="select-70p" value=""></td>
+          </tr>
+          <tr>
+            <td align="right">Descuento:</td>
+            <td class="Rojo12Pt"><input name="discount" type="text" class="select-70p" id="descuento" value=""></td>
+          </tr>
+          <tr>
+            <td align="right">Moneda:</td>
+            <td class="Rojo12Pt"> <select name="currency" class="select-70p">
+                <option value="USD">USD</option>
+                <option value="COP" selected="">COP</option>
+                <option value="EUR">EUR</option>
+                <option value="GBP">GBP</option>
+                <option value="MXN">MXN</option>
+                <option value="VEB">VEB</option>
+                <option value="BRL">BRL</option>
+                <option value="PEN">PEN</option>
+                <option value="CLP">CLP</option>
+                <option value="ARS">ARS</option>
+                <option value="CAD">CAD</option>
+                <option value="DOP">DOP</option>
+                <option value="AWG">AWG</option>
+                <option value="CRC">CRC</option>
+                <option value="PAB">PAB</option>
+                <option value="VEF">VEF</option>
+                <option value="ANG">ANG</option>
+                <option value="INR">INR</option>
+              </select> </td>
+          </tr>
+          <tr>
+            <td align="right">Fecha Expiración:</td>
+            <td class="Rojo12Pt"><input name="expirationDate" type="text" class="select-70p" id="expirationDate" size="50" value=""></td>
+          </tr>
+          <tr>
+            <td align="right">Nombre:</td>
+            <td class="Rojo12Pt"><input name="buyerFullName" type="text" class="select-70p" id="nombreComprador" size="50" value=""></td>
+          </tr>
+          <tr>
+            <td align="right">Email:</td>
+            <td class="Rojo12Pt"><input name="buyerEmail" type="text" class="select-70p" id="emailComprador" size="32" value=""></td>
+          </tr>
+          <tr>
+            <td align="right">Ciudad de facturación:</td>
+            <td class="Rojo12Pt"><input name="billingCity" type="text" class="select-70p" id="ciudadCobro" size="32" value=""></td>
+          </tr>
+          <tr>
+            <td align="right">Dirrección de facturación:</td>
+            <td class="Rojo12Pt"><input name="billingAddress" type="text" class="select-70p" id="direccionCobro" size="32" value=""></td>
+          </tr>
+          <tr>
+            <td align="right">País de facturación:</td>
+            <td class="Rojo12Pt"><input name="billingCountry" type="text" class="select-70p" id="paisCobro" size="32" value=""></td>
+          </tr>          
+          <tr>
+            <td align="right">Algoritmo de la firma:</td>
+            <td class="Rojo12Pt"> <select name="algorithmSignature" id="algoritmo" class="select-70p">
+                <option value="" selected="">Ninguno</option>
+                <option value="md5" selected="">MD5</option>
+                <option value="sha">SHA</option>
+              </select> </td>
+          </tr>
+          <tr>
+            <td align="right">Firma digital:</td>
+            <td class="Rojo12Pt"><input name="signature" type="text" class="select-70p" id="firma" size="32" value="">
+              <a href="https://qa2.checkout.payulatam.com/ppp-web-gateway-payu/test/prueba_pago#" onclick="generarFirma()">(generar)</a></td>
+          </tr>
+          <tr>
+            <td align="right">Url de confirmación:</td>
+            <td class="Rojo12Pt"><input name="confirmationUrl" type="text" class="select-70p" id="url_confirmacion" size="32" value=""></td>
+          </tr>
+          <tr>
+            <td align="right">Url de respuesta:</td>
+            <td class="Rojo12Pt"><input name="responseUrl" type="text" class="select-70p" id="url_respuesta" size="32" value=""></td>
+          </tr>
+          <tr>
+            <td align="right">Url de respuesta aprobada:</td>
+            <td class="Rojo12Pt"><input name="approvedResponseUrl" type="text" class="select-70p" id="urlAprobada" size="32" value=""></td>
+          </tr>
+          <tr>
+            <td align="right">Url de respuesta pendiente:</td>
+            <td class="Rojo12Pt"><input name="pendingResponseUrl" type="text" class="select-70p" id="urlEnValidacion" size="32" value=""></td>
+          </tr>
+          <tr>
+            <td align="right">Url de respuesta rechazada:</td>
+            <td class="Rojo12Pt"><input name="declinedResponseUrl" type="text" class="select-70p" id="urlRechazada" size="32" value=""></td>
+          </tr>
+          <tr>
+            <td align="right">Url Origen (Botón de Pago):</td>
+            <td class="Rojo12Pt"><input name="sourceUrl" type="text" class="select-70p" id="sourceUrl" size="32" value=""></td>
+          </tr>
+          <tr>
+            <td align="right">Partner Id:</td>
+            <td class="Rojo12Pt"><input name="partnerId" type="text" class="select-70p" id="partnerId" size="32" value=""></td>
+          </tr>
+          <tr>
+            <td align="right">Pruebas:</td>
+            <td class="Rojo12Pt"><input name="test" type="checkbox" id="prueba" value="1"></td>
+          </tr>
+
+            <tr><td align="right">LNG:</td>
+            <td class="Rojo12Pt"><input name="lng" type="text" class="select-70p" id="lng" size="32" value="">
+            </td>
+          </tr>
+          <tr>
+            <td align="right">Plantilla:</td>
+            <td class="Rojo12Pt"><input name="template" type="text" class="select-70p" id="template" size="32" value=""></td>
+          </tr>
+          <tr>
+            <td align="right">Código de la aerolínea:</td>
+            <td class="Rojo12Pt"><input name="airline" type="text" class="select-70p" id="airline" size="32" value="">
+            </td>
+          </tr>
+
+          <tr>
+            <td align="right">Tipos de Medios de Pago:</td>
+            <td class="Rojo12Pt"><input name="paymentMethods" type="text" class="select-70p" size="32" value="">
+            </td>
+          </tr>
+          
+          <tr>
+            <td align="right">Bines admitidos:</td>
+            <td class="Rojo12Pt"><input name="iin" type="text" class="select-70p" size="32" value="">
+            </td>
+          </tr>
+          
+          <tr>
+            <td align="right">Preselección medio de pago:</td>
+            <td class="Rojo12Pt"><input name="selectedPaymentMethod" type="text" class="select-70p" size="32" value="">
+            </td>
+          </tr>
+          
+          <tr>
+            <td align="right">Descripción Tipos de Medios de Pago:</td>
+            <td class="Rojo12Pt"><input name="paymentMethodsDescription" type="text" class="select-70p" size="32" value="">
+            </td>
+          </tr>
+
+          <tr>
+            <td align="right">Tarifa administrativa:</td>
+            <td class="Rojo12Pt"><input name="administrativeFee" type="text" class="select-70p" size="32" value="">
+            </td>
+          </tr>
+
+          <tr>
+            <td align="right">Iva de la tarifa administrativa:</td>
+            <td class="Rojo12Pt"><input name="taxAdministrativeFee" type="text" class="select-70p" size="32" value="">
+            </td>
+          </tr>
+
+          <tr>
+            <td align="right">Base devolución IVA Tarifa Administrativa:</td>
+            <td class="Rojo12Pt"><input name="taxAdministrativeFeeReturnBase" type="text" class="select-70p" size="32" value="">
+            </td>
+          </tr>
+          
+          <tr>
+	          <td align="right"><b>DATOS DEL ENVÍO:</b></td>
+	          <td class="Rojo12Pt" width="64%"></td>
+	        </tr>
+	        <tr>
+	          <td align="right">Dirección de Entrega de la Mercancía:</td>
+	          <td class="Rojo12Pt"><input name="shippingAddress" type="text" class="select-70p" size="32" value=""></td>
+	        </tr>
+	        <tr>
+	          <td align="right">Dirección de Entrega 2:</td>
+	          <td class="Rojo12Pt"><input name="shippingAddress2" type="text" class="select-70p" size="32" value=""></td>
+	        </tr>
+	        <tr>
+	          <td align="right">Ciudad de Entrega de la Mercancía: (*COD)</td>
+	          <td class="Rojo12Pt"><input name="shippingCity" type="text" class="select-70p" size="32" value=""></td>
+	        </tr>
+	        <tr>
+            <td align="right">País de Entrega:</td>
+            <td class="Rojo12Pt"> <select name="shippingCountry" class="select-70p">
+                 <option value="AR">Argentina</option> <option value="BR">Brasil</option> <option value="CA">Canada</option> <option value="CL">Chile</option> <option value="CO" selected="selected">Colombia</option> <option value="FR">Francia</option> <option value="DE">Alemania</option> <option value="GR">Grecia</option> <option value="IT">Italia</option> <option value="MX">México</option> <option value="PA">Panamá</option> <option value="PY">Paraguay</option> <option value="PE">Perú</option> <option value="PT">Portugal</option> <option value="ES">España</option> <option value="GB">United Kingdom</option> <option value="US">United States</option> <option value="AF">Afghanistan</option> <option value="AX">Åland Islands</option> <option value="AL">Albania</option> <option value="DZ">Algeria</option> <option value="AS">American Samoa</option> <option value="AD">Andorra</option> <option value="AO">Angola</option> <option value="AI">Anguilla</option> <option value="AQ">Antarctica</option> <option value="AG">Antigua And Barbuda</option> <option value="AM">Armenia</option> <option value="AW">Aruba</option> <option value="AU">Australia</option> <option value="AT">Austria</option> <option value="AZ">Azerbaijan</option> <option value="BS">Bahamas</option> <option value="BH">Bahrain</option> <option value="BD">Bangladesh</option> <option value="BB">Barbados</option> <option value="BY">Belarus</option> <option value="BE">Belgium</option> <option value="BZ">Belize</option> <option value="BJ">Benin</option> <option value="BM">Bermuda</option> <option value="BT">Bhutan</option> <option value="BO">Bolivia, Plurinational State Of</option> <option value="BQ">Bonaire, Sint Eustatius And Saba</option> <option value="BA">Bosnia And Herzegovina</option> <option value="BW">Botswana</option> <option value="BV">Bouvet Island</option> <option value="IO">British Indian Ocean Territory</option> <option value="BN">Brunei Darussalam</option> <option value="BG">Bulgaria</option> <option value="BF">Burkina Faso</option> <option value="BI">Burundi</option> <option value="KH">Cambodia</option> <option value="CM">Cameroon</option> <option value="CV">Cape Verde</option> <option value="KY">Cayman Islands</option> <option value="CF">Central African Republic</option> <option value="TD">Chad</option> <option value="CN">China</option> <option value="CX">Christmas Island</option> <option value="CC">Cocos (keeling) Islands</option> <option value="KM">Comoros</option> <option value="CG">Congo</option> <option value="CD">Congo, The Democratic Republic Of The</option> <option value="CK">Cook Islands</option> <option value="CR">Costa Rica</option> <option value="CI">Côte D'ivoire</option> <option value="HR">Croatia</option> <option value="CU">Cuba</option> <option value="CW">Curacao</option> <option value="CY">Cyprus</option> <option value="CZ">Czech Republic</option> <option value="DK">Denmark</option> <option value="DJ">Djibouti</option> <option value="DM">Dominica</option> <option value="DO">Dominican Republic</option> <option value="EC">Ecuador</option> <option value="EG">Egypt</option> <option value="SV">El Salvador</option> <option value="GQ">Equatorial Guinea</option> <option value="ER">Eritrea</option> <option value="EE">Estonia</option> <option value="ET">Ethiopia</option> <option value="FK">Falkland Islands (malvinas)</option> <option value="FO">Faroe Islands</option> <option value="FJ">Fiji</option> <option value="FI">Finland</option> <option value="GF">French Guiana</option> <option value="PF">French Polynesia</option> <option value="TF">French Southern Territories</option> <option value="GA">Gabon</option> <option value="GM">Gambia</option> <option value="GE">Georgia</option> <option value="GH">Ghana</option> <option value="GI">Gibraltar</option> <option value="GL">Greenland</option> <option value="GD">Grenada</option> <option value="GP">Guadeloupe</option> <option value="GU">Guam</option> <option value="GT">Guatemala</option> <option value="GG">Guernsey</option> <option value="GN">Guinea</option> <option value="GW">Guinea-bissau</option> <option value="GY">Guyana</option> <option value="HT">Haiti</option> <option value="HM">Heard Island And Mcdonald Islands</option> <option value="VA">Holy See (vatican City State)</option> <option value="HN">Honduras</option> <option value="HK">Hong Kong</option> <option value="HU">Hungary</option> <option value="IS">Iceland</option> <option value="IN">India</option> <option value="ID">Indonesia</option> <option value="IR">Iran, Islamic Republic Of</option> <option value="IQ">Iraq</option> <option value="IE">Ireland</option> <option value="IM">Isle Of Man</option> <option value="IL">Israel</option> <option value="JM">Jamaica</option> <option value="JP">Japan</option> <option value="JE">Jersey</option> <option value="JO">Jordan</option> <option value="KZ">Kazakhstan</option> <option value="KE">Kenya</option> <option value="KI">Kiribati</option> <option value="KP">Korea, Democratic People's Republic Of</option> <option value="KR">Korea, Republic Of</option> <option value="KW">Kuwait</option> <option value="KG">Kyrgyzstan</option> <option value="LA">Lao People's Democratic Republic</option> <option value="LV">Latvia</option> <option value="LB">Lebanon</option> <option value="LS">Lesotho</option> <option value="LR">Liberia</option> <option value="LY">Libya</option> <option value="LI">Liechtenstein</option> <option value="LT">Lithuania</option> <option value="LU">Luxembourg</option> <option value="MO">Macao</option> <option value="MK">Macedonia, The Former Yugoslav Republic Of</option> <option value="MG">Madagascar</option> <option value="MW">Malawi</option> <option value="MY">Malaysia</option> <option value="MV">Maldives</option> <option value="ML">Mali</option> <option value="MT">Malta</option> <option value="MH">Marshall Islands</option> <option value="MQ">Martinique</option> <option value="MR">Mauritania</option> <option value="MU">Mauritius</option> <option value="YT">Mayotte</option> <option value="FM">Micronesia, Federated States Of</option> <option value="MD">Moldova, Republic Of</option> <option value="MC">Monaco</option> <option value="MN">Mongolia</option> <option value="ME">Montenegro</option> <option value="MS">Montserrat</option> <option value="MA">Morocco</option> <option value="MZ">Mozambique</option> <option value="MM">Myanmar</option> <option value="NA">Namibia</option> <option value="NR">Nauru</option> <option value="NP">Nepal</option> <option value="NL">Netherlands</option> <option value="NC">New Caledonia</option> <option value="NZ">New Zealand</option> <option value="NI">Nicaragua</option> <option value="NE">Niger</option> <option value="NG">Nigeria</option> <option value="NU">Niue</option> <option value="NF">Norfolk Island</option> <option value="MP">Northern Mariana Islands</option> <option value="NO">Norway</option> <option value="OM">Oman</option> <option value="PK">Pakistan</option> <option value="PW">Palau</option> <option value="PS">Palestinian Territory, Occupied</option> <option value="PG">Papua New Guinea</option> <option value="PH">Philippines</option> <option value="PN">Pitcairn</option> <option value="PL">Poland</option> <option value="PR">Puerto Rico</option> <option value="QA">Qatar</option> <option value="RE">Réunion</option> <option value="RO">Romania</option> <option value="RU">Russian Federation</option> <option value="RW">Rwanda</option> <option value="BL">Saint Barthelemy</option> <option value="SH">Saint Helena, Ascension And Tristan Da Cunha</option> <option value="KN">Saint Kitts And Nevis</option> <option value="LC">Saint Lucia</option> <option value="MF">Saint Martin (french Part)</option> <option value="PM">Saint Pierre And Miquelon</option> <option value="VC">Saint Vincent And The Grenadines</option> <option value="WS">Samoa</option> <option value="SM">San Marino</option> <option value="ST">Sao Tome And Principe</option> <option value="SA">Saudi Arabia</option> <option value="SN">Senegal</option> <option value="RS">Serbia</option> <option value="SC">Seychelles</option> <option value="SL">Sierra Leone</option> <option value="SG">Singapore</option> <option value="SX">Sint Maarten (dutch Part)</option> <option value="SK">Slovakia</option> <option value="SI">Slovenia</option> <option value="SB">Solomon Islands</option> <option value="SO">Somalia</option> <option value="ZA">South Africa</option> <option value="GS">South Georgia And The South Sandwich Islands</option> <option value="LK">Sri Lanka</option> <option value="SD">Sudan</option> <option value="SR">Suriname</option> <option value="SS">South Sudan</option> <option value="SJ">Svalbard And Jan Mayen</option> <option value="SZ">Swaziland</option> <option value="SE">Sweden</option> <option value="CH">Switzerland</option> <option value="SY">Syrian Arab Republic</option> <option value="TW">Taiwan, Province Of China</option> <option value="TJ">Tajikistan</option> <option value="TZ">Tanzania, United Republic Of</option> <option value="TH">Thailand</option> <option value="TL">Timor-leste</option> <option value="TG">Togo</option> <option value="TK">Tokelau</option> <option value="TO">Tonga</option> <option value="TT">Trinidad And Tobago</option> <option value="TN">Tunisia</option> <option value="TR">Turkey</option> <option value="TM">Turkmenistan</option> <option value="TC">Turks And Caicos Islands</option> <option value="TV">Tuvalu</option> <option value="UG">Uganda</option> <option value="UA">Ukraine</option> <option value="AE">United Arab Emirates</option> <option value="UM">United States Minor Outlying Islands</option> <option value="UY">Uruguay</option> <option value="UZ">Uzbekistan</option> <option value="VU">Vanuatu</option> <option value="VE">Venezuela, Bolivarian Republic Of</option> <option value="VN">Viet Nam</option> <option value="VG">Virgin Islands, British</option> <option value="VI">Virgin Islands, U.s.</option> <option value="WF">Wallis And Futuna</option> <option value="EH">Western Sahara</option> <option value="YE">Yemen</option> <option value="ZM">Zambia</option> <option value="ZW">Zimbabwe</option>
+              </select> </td>
+          </tr>
+          
+          <tr>
+            <td align="right">Extra 1:</td>
+            <td class="Rojo12Pt"><input name="extra1" type="text" class="select-70p" size="32" value="">
+            </td>
+          </tr>
+          <tr>
+            <td align="right">Extra 2:</td>
+            <td class="Rojo12Pt"><input name="extra2" type="text" class="select-70p" size="32" value="">
+            </td>
+          </tr>
+          <tr>
+            <td align="right">Extra 3:</td>
+            <td class="Rojo12Pt"><input name="extra3" type="text" class="select-70p" size="32" value="">
+            </td>
+          </tr>
+          <tr>
+            <td align="right">Extra 4:</td>
+            <td class="Rojo12Pt"><input name="extra4" type="text" class="select-70p" size="32" value="">
+            </td>
+          </tr>
+
+           <tr>
+            <td align="right">Solicitar comentarios del pagador:</td>
+            <td class="Rojo12Pt"><input name="displayBuyerComments" type="checkbox" id="solicitarComentariosPagador" value="1"></td>
+          </tr>
+          <tr>
+            <td align="right">Etiqueta para comentarios:</td>
+            <td class="Rojo12Pt">
+                <input name="buyerCommentsLabel" type="text" class="select-70p" size="50" value="" placeholder="es | en | pt">
+            </td>
+          </tr>
+           <tr>
+            <td align="right">Solicitar datos de envío:</td>
+            <td class="Rojo12Pt"><input name="displayShippingInformation" type="checkbox" id="solicitarDatosEnvio" value="1"></td>
+          </tr>
+      
+          <tr>
+            <td align="right">Pago contra entrega:</td>
+            <td class="Rojo12Pt"><input name="isCashOnDeliveryApply" type="checkbox" id="aplicaPagoContraEntrega" value="1" onclick="toggle(this, &#39;contraEntrega&#39;)"></td>
+          </tr>
+          <tr id="contraEntrega" style="visibility:hidden; display: none">
+                <td align="right" colspan="2">
+                
+                    <table width="100%" border="0" cellspacing="2" cellpadding="2">
+                        <tbody><tr>
+                          <td align="right"><b>DATOS DE COMPRADOR: (OPCIONAL)</b></td>
+                          <td class="Rojo12Pt" width="64%"></td>
+                        </tr>
+                        <tr>
+                          <td align="right">País Residencia:</td>
+                          <td class="Rojo12Pt"><input name="buyerCountry" type="text" class="select-70p" size="32" value=""></td>
+                        </tr>
+                        <tr>
+                          <td align="right">Departamento/Región:</td>
+                          <td class="Rojo12Pt"><input name="buyerState" type="text" class="select-70p" size="32" value=""></td>
+                        </tr>
+                        <tr>
+                          <td align="right">Ciudad/Municipio:</td>
+                          <td class="Rojo12Pt"><input name="buyerCity" type="text" class="select-70p" size="32" value=""></td>
+                        </tr>
+                        <tr>
+                          <td align="right">Tipo Documento:</td>
+                          <td class="Rojo12Pt"><input name="buyerDocumentType" type="text" class="select-70p" size="32" value=""></td>
+                        </tr>
+                        <tr>
+                          <td align="right">Número de Documento:</td>
+                          <td class="Rojo12Pt"><input name="buyerDocument" type="text" class="select-70p" size="32" value=""></td>
+                        </tr>
+                        <tr>
+                          <td align="right">Número de Celular:</td>
+                          <td class="Rojo12Pt"><input name="mobilePhone" type="text" class="select-70p" size="32" value=""></td>
+                        </tr>
+                        <tr>
+                          <td align="right">Teléfono diurno:</td>
+                          <td class="Rojo12Pt"><input name="officeTelephone" type="text" class="select-70p" size="32" value=""></td>
+                        </tr>
+                        <tr>
+                          <td align="right"><b>DATOS DE PAGADOR: (OPCIONAL)</b></td>
+                          <td class="Rojo12Pt" width="64%"></td>
+                        </tr>
+                        <tr>
+                          <td align="right">Correo Electrónico:</td>
+                          <td class="Rojo12Pt"><input name="payerEmail" type="text" class="select-70p" size="32" value=""></td>
+                        </tr>
+                        <tr>
+                          <td align="right">País Residencia:</td>
+                          <td class="Rojo12Pt"><input name="payerCountry" type="text" class="select-70p" size="32" value=""></td>
+                        </tr>
+                        <tr>
+                          <td align="right">Departamento/Región:</td>
+                          <td class="Rojo12Pt"><input name="payerState" type="text" class="select-70p" size="32" value=""></td>
+                        </tr>
+                        <tr>
+                          <td align="right">Ciudad/Municipio:</td>
+                          <td class="Rojo12Pt"><input name="payerCity" type="text" class="select-70p" size="32" value=""></td>
+                        </tr>
+                        <tr>
+                          <td align="right">Tipo Documento:</td>
+                          <td class="Rojo12Pt"><input name="payerDocumentType" type="text" class="select-70p" size="32" value=""></td>
+                        </tr>
+                        <tr>
+                          <td align="right">Nombre Completo:</td>
+                          <td class="Rojo12Pt"><input name="payerFullName" type="text" class="select-70p" size="32" value=""></td>
+                        </tr>
+                        <tr>
+                          <td align="right">Número de Identificación:</td>
+                          <td class="Rojo12Pt"><input name="payerDocument" type="text" class="select-70p" size="32" value=""></td>
+                        </tr>
+                        
+                        <tr>
+                          <td align="right">Número de Celular:</td>
+                          <td class="Rojo12Pt"><input name="payerMobilePhone" type="text" class="select-70p" size="32" value=""></td>
+                        </tr>
+                        <tr>
+                          <td align="right">Teléfono diurno:</td>
+                          <td class="Rojo12Pt"><input name="payerOfficePhone" type="text" class="select-70p" size="32" value=""></td>
+                        </tr>
+     
+                        <tr>
+                          <td align="right"><b>DATOS DE COMERCIO REMITENTE:</b></td>
+                          <td class="Rojo12Pt" width="64%"></td>
+                        </tr>
+                        <tr>
+                          <td align="right">ID Bodega:</td>
+                          <td class="Rojo12Pt"><input name="warehouseId" type="text" class="select-70p" size="32" value=""></td>
+                        </tr>
+                        <tr>
+                          <td align="right">Ciudad Bodega:</td>
+                          <td class="Rojo12Pt"><input name="wareHouseCity" type="text" class="select-70p" size="32" value=""></td>
+                        </tr>
+                        <tr>
+                          <td align="right">Dirección Bodega:</td>
+                          <td class="Rojo12Pt"><input name="wareHouseAddress" type="text" class="select-70p" size="32" value=""></td>
+                        </tr>
+                        <tr>
+                          <td align="right">Nombre Contacto Bodega:</td>
+                          <td class="Rojo12Pt"><input name="contactName" type="text" class="select-70p" size="32" value=""></td>
+                        </tr>
+                        <tr>
+                          <td align="right">Teléfono de Contacto Bodega:</td>
+                          <td class="Rojo12Pt"><input name="wareHouseContactPhone" type="text" class="select-70p" size="32" value=""></td>
+                        </tr>
+                        <tr>
+                          <td align="right">Teléfono Movil de Contacto:</td>
+                          <td class="Rojo12Pt"><input name="wareHouseMobilePhone" type="text" class="select-70p" size="32" value=""></td>
+                        </tr>
+                        <tr>
+                          <td align="right">Código Postal Bodega:</td>
+                          <td class="Rojo12Pt"><input name="wareHouseZipCode" type="text" class="select-70p" size="32" value=""></td>
+                        </tr>
+                    
+                        <tr>
+                          <td align="right">* Peso en Kilogramos:</td>
+                          <td class="Rojo12Pt"><input name="kilogramWeight" type="text" class="select-70p" size="32" value=""></td>
+                        </tr>
+                        <tr>
+                          <td align="right">* Peso Volumétrico:</td>
+                          <td class="Rojo12Pt"><input name="weightByVolume" type="text" class="select-70p" size="32" value=""></td>
+                        </tr>
+                        <tr>
+                          <td align="right">Alto:</td>
+                          <td class="Rojo12Pt"><input name="shipmentPackageHeightDimension" type="text" class="select-70p" size="32" value=""></td>
+                        </tr>
+                        <tr>
+                          <td align="right">Largo:</td>
+                          <td class="Rojo12Pt"><input name="shipmentPackageLengthDimension" type="text" class="select-70p" size="32" value=""></td>
+                        </tr>
+                        <tr>
+                          <td align="right">Ancho:</td>
+                          <td class="Rojo12Pt"><input name="shipmentPackageWidthDimension" type="text" class="select-70p" size="32" value=""></td>
+                        </tr>
+                        <tr>
+                          <td align="right">Valor Declarado:</td>
+                          <td class="Rojo12Pt"><input name="declaredValue" type="text" class="select-70p" size="32" value=""></td>
+                        </tr>
+                        <tr>
+                          <td align="right">Valor Envío:</td>
+                          <td class="Rojo12Pt"><input name="shippingValue" type="text" class="select-70p" size="32" value=""></td>
+                        </tr>
+                        <tr>
+                          <td align="right">Código Postal envío:</td>
+                          <td class="Rojo12Pt"><input name="payerShippingPostalCode" type="text" class="select-70p" size="32" value=""></td>
+                        </tr>
+                        <tr>
+                          <td align="right">Observaciones de Envío:</td>
+                          <td class="Rojo12Pt"><input name="observationsReceivingShipment" type="text" class="select-70p" size="32" value=""></td>
+                        </tr>            
+                        <tr>
+                          <td align="right">Aplica Courier:</td>
+                          <td class="Rojo12Pt"><input name="isCourierApply" type="checkbox" id="aplicaCourier" value="1"></td>
+                        </tr>
+                        
+                    </tbody></table>
+         
+                </td>
+          </tr>
+
+          <tr>
+            <td align="right">&nbsp;</td>
+            <td class="Rojo12Pt"><input name="Submit" type="submit" class="select-70p" value="Enviar"></td>
+          </tr>
+
+        </tbody></table>
+      </form>
+      <br>
+      <br>
+      <br>
+    </td>
+  </tr>
+</tbody></table>
+<br>
+<table width="760" border="0" align="center" cellpadding="0" cellspacing="0">
+  <tbody><tr>
+    <td align="center">PayU<br>Pagosonline.net S.A todos los derechos reservados</td>
+  </tr>
+</tbody></table>
+<br>
+<script>
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-55528054-1', 'auto');
+</script>
+
+
+</body></html>
