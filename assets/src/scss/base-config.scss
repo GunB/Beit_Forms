@@ -1,9 +1,9 @@
 /* Define media queries */
 
-$desktop-width-main     : 960px;
-$desktop-width-side     : 200px;
+$desktop-width-main     : 860px;
+$desktop-width-side     : 250px;
 
-$desktop-width          : $desktop-width-main + $desktop-width-side;
+$desktop-width          : $desktop-width-main + $desktop-width-side + $desktop-width-side;
 
 /*******************************/
 
@@ -85,4 +85,12 @@ $color-info             : rgb(230, 250, 251);
     -webkit-box-orient: vertical;
     overflow: hidden;
     text-overflow: ellipsis;
+}
+
+@mixin flex-order($val){
+    -webkit-box-ordinal-group: $val+1;
+    -moz-box-ordinal-group: $val+1;
+    -ms-flex-order: $val;
+    -webkit-order: $val;
+    order: $val;
 }

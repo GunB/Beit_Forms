@@ -1,58 +1,30 @@
 /********** MEDIA QUERIES **************/
 
-@media only screen and (min-width : $desktop-width) {
-    main{
-        //width: $desktop-width;
-        //margin: 0 auto;
-        margin: 50 auto;
-        @include flex-block;
-        *{
-            width: 100%;
-        }
-        [name="form1"]{
-            width: $desktop-width-main;
-            margin: 0 auto;
-            order: 2;
-        }
-
-        nav{
-            position: fixed;
-            left: 100%;
-            top: 0%;
-            transform: translate(-100%, 100%);
-        }
-
-    }
-}
-
-@media only screen and (max-width : $desktop-width) {
-    [name="form1"]{
-        order: 2;
-    }
-    nav{
-        order: 1;
-    }
-}
-
-
-
 main{
-    nav{
-        width: $desktop-width-side;
-        ul{
-            width: $desktop-width-side;
-            background-color:#ddd;
+
+    @include flex-block;
+    *{
+        width: 100%;
+    }
+    .form1{
+        margin: 0 auto;
+        @include flex-order(2);
+    }
+
+    aside{
+        @include flex-order(1);
+        //background-color:#ddd;
+
+        border:{
+            width: $basic-border;
+            style: solid;
+            color: $font-color-icons;
         }
+        //@include border-radius($border-radius);        
     }
 }
 
-[name="form1"]{
-    @media only screen and (max-width : $desktop-width) {
-        fieldset{
-            border: 0;
-
-        }
-    }
+.form{
     fieldset{
         border: 1px solid $border-color;
         //box-shadow: 0 0 0 1px black; // Outside black border 1px
@@ -114,11 +86,6 @@ header{
             @include border-radius(100%);
             padding: 0px 10px;
             margin-right: $interlineado;
-        }
-    }
-    @media only screen and (max-width : $desktop-width) {
-        a{
-            display: none;
         }
     }
 }

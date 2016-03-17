@@ -144,50 +144,41 @@ a {
   cursor: pointer; }
 
 /********** MEDIA QUERIES **************/
-@media only screen and (min-width: 1160px) {
-  main {
-    margin: 50 auto;
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: -moz-flex;
-    display: -ms-flexbox;
-    display: flex;
-    align-items: center; }
-    main * {
-      width: 100%; }
-    main [name="form1"] {
-      width: 960px;
-      margin: 0 auto;
-      order: 2; }
-    main nav {
-      position: fixed;
-      left: 100%;
-      top: 0%;
-      transform: translate(-100%, 100%); } }
-@media only screen and (max-width: 1160px) {
-  [name="form1"] {
+main {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flexbox;
+  display: flex;
+  align-items: center; }
+  main * {
+    width: 100%; }
+  main .form1 {
+    margin: 0 auto;
+    -webkit-box-ordinal-group: 3;
+    -moz-box-ordinal-group: 3;
+    -ms-flex-order: 2;
+    -webkit-order: 2;
     order: 2; }
+  main aside {
+    -webkit-box-ordinal-group: 2;
+    -moz-box-ordinal-group: 2;
+    -ms-flex-order: 1;
+    -webkit-order: 1;
+    order: 1;
+    border-width: 1px;
+    border-style: solid;
+    border-color: #00afb9; }
 
-  nav {
-    order: 1; } }
-main nav {
-  width: 200px; }
-  main nav ul {
-    width: 200px;
-    background-color: #ddd; }
-
-@media only screen and (max-width: 1160px) {
-  [name="form1"] fieldset {
-    border: 0; } }
-[name="form1"] fieldset {
+.form fieldset {
   border: 1px solid #e3e5e7;
   border-top: 0; }
-[name="form1"] legend {
+.form legend {
   width: auto;
   padding: 7px;
   margin-left: 7px;
   display: none; }
-[name="form1"] .form-group {
+.form .form-group {
   display: -webkit-box;
   display: -webkit-flex;
   display: -moz-flex;
@@ -197,17 +188,17 @@ main nav {
   flex-wrap: wrap;
   width: 100%;
   padding: 7px; }
-  [name="form1"] .form-group:nth-child(2n+1) {
+  .form .form-group:nth-child(2n+1) {
     background: #f7fdfd; }
-  [name="form1"] .form-group * {
+  .form .form-group * {
     width: 50%; }
-  [name="form1"] .form-group a {
+  .form .form-group a {
     width: 100%;
     text-align: right;
     padding: 10px; }
-  [name="form1"] .form-group label {
+  .form .form-group label {
     text-align: center; }
-  [name="form1"] .form-group [type="checkbox"] {
+  .form .form-group [type="checkbox"] {
     padding: 0;
     margin: 0;
     border: 0; }
@@ -242,9 +233,6 @@ header {
       border-radius: 100%;
       padding: 0px 10px;
       margin-right: 7px; }
-  @media only screen and (max-width: 1160px) {
-    header a {
-      display: none; } }
 
 /************ plugins ******************/
 .transition, .accordion section, .accordion ul li > i:before, .accordion ul li > i:after {
@@ -345,5 +333,48 @@ input.ng-invalid.ng-touched {
 
 .inactive {
   display: none; }
+
+/* Custom, iPhone Retina */
+@media only screen and (min-width: 1360px) {
+  main {
+    margin: 3rem auto; }
+
+  .form1 {
+    width: 860px;
+    -webkit-box-ordinal-group: 2;
+    -moz-box-ordinal-group: 2;
+    -ms-flex-order: 1;
+    -webkit-order: 1;
+    order: 1; }
+
+  aside {
+    width: 250px;
+    position: fixed;
+    right: 0%;
+    top: 5rem;
+    transform: translate(0%, 0%);
+    -webkit-box-ordinal-group: 3;
+    -moz-box-ordinal-group: 3;
+    -ms-flex-order: 2;
+    -webkit-order: 2;
+    order: 2; } }
+@media only screen and (max-width: 1360px) {
+  main {
+    flex-wrap: wrap; } }
+/*==================================================
+=            Bootstrap 3 Media Queries             =
+==================================================*/
+/*==========  Mobile First Method  ==========*/
+/* Custom, iPhone Retina */
+/* Extra Small Devices, Phones */
+/* Small Devices, Tablets */
+/* Medium Devices, Desktops */
+/* Large Devices, Wide Screens */
+/*==========  Non-Mobile First Method  ==========*/
+/* Large Devices, Wide Screens */
+/* Medium Devices, Desktops */
+/* Small Devices, Tablets */
+/* Extra Small Devices, Phones */
+/* Custom, iPhone Retina */
 
 /*# sourceMappingURL=main.css.map */
