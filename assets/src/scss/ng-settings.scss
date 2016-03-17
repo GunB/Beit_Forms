@@ -1,0 +1,15 @@
+
+input.ng-invalid.ng-touched {
+    background: rgba(255, 0, 0, 0.1);
+}
+
+input.ng-valid.ng-touched {
+    //background: #78FA89;
+}
+
+.active{
+}
+
+.inactive{
+    display: none;
+}

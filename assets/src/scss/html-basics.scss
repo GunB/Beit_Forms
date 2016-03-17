@@ -1,0 +1,91 @@
+/********** BODY **************/
+
+body{
+    font-family: $font-family;
+    color: $font-color;
+    background: {
+        image: $background-color;
+        repeat: no-repeat;
+        position: center center;
+        attachment: fixed;
+    };
+    @include background-size(cover);
+}
+
+h1 , h2 {
+    color: $font-color-title;
+    text-transform: lowercase;
+}
+
+h1 {
+    font-size: 36px;
+    line-height: 42px;
+    letter-spacing: 3px;
+    font-weight: 100;
+    //@extend .flipIn;
+}
+
+h2 {
+    font-size: 26px;
+    line-height: 34px;
+    font-weight: 300;
+    letter-spacing: 1px;
+    display: block;
+    margin: 0;
+    cursor: pointer;
+
+    //@extend .no-select;
+}
+
+label{
+    vertical-align: text-top;
+    flex-grow: 1;
+    color: $font-color-title;
+    font-weight: bold;
+}
+
+
+
+/********** FORM CONTROLS **************/
+
+.button, button{
+    outline: none;
+    background-color: $font-color-link;
+    border: 0px;
+    @include border-radius(20px);
+    color: $font-color-inverse;
+    font-size: $font-size-title;
+    padding: 20px 40px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+[type="checkbox"]{
+    padding: 0;
+    margin: 0;
+    border: 0;
+    //width: 25px;
+}
+
+input[type=text], input[type=number], textarea, select {
+    outline: none;
+    border: 1px solid $outline-color-focus;
+    @include border-radius($border-radius);
+    border: 2px solid $border-color;
+    padding: $padding-default;
+    margin: $interlineado 0px;
+    display: block;
+    width: 100%;    
+}
+
+input[type=text]:focus,input[type=number]:focus, button:focus, textarea:focus {
+    -webkit-transition: all 0.30s ease-in-out;
+    -moz-transition: all 0.30s ease-in-out;
+    -ms-transition: all 0.30s ease-in-out;
+    -o-transition: all 0.30s ease-in-out;
+    box-shadow: 0 0 5px $outline-color-focus;
+    border: 1px solid $outline-color-focus;
+}
+a{
+    cursor: pointer;
+}

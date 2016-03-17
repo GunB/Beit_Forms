@@ -1,0 +1,88 @@
+/* Define media queries */
+
+$desktop-width-main     : 960px;
+$desktop-width-side     : 200px;
+
+$desktop-width          : $desktop-width-main + $desktop-width-side;
+
+/*******************************/
+
+/* Define some variables */
+
+/********** BASICS ************/
+$background-color       : #fff;//url(http://cssdeck.com/uploads/media/items/7/7AF2Qzt.png);
+$background-table-color : rgb(247, 253, 253);
+
+$basic-border           : 1px;
+$border-color           : rgb(227, 229, 231);
+$font-color             : rgb(151, 151, 151);
+$font-color-link        : rgb(151, 195, 14);
+$font-color-inverse     : #fff;
+$font-color-title       : #000;
+$font-color-icons       : rgb(0, 175, 185);
+$font-size-title        : 18pt;
+$font-family            : 'Helvetica Neue', Helvetica, Arial, sans-serif;
+
+/********** STYLE *************/
+
+//$background-inner       : image-url("inner.jpg");
+//$background-outter      : image-url("outter.jpg");
+
+$header-bg              : rgb(245, 247, 249);
+$border-radius          : 10px;
+$outline-color-focus    : $font-color-icons;
+$icon-list-bg           : black;
+
+//$menu-width             : 250px!default;
+
+//$footer-size            : 250px;
+
+/********** GRID COMICS *********/
+
+$grid-width             : 400px;
+$padding-default        : 10px;
+$interlineado           : 7px;
+$padding-title          : 10px;
+
+
+/********** SPECIAL INFO *********/
+
+$color-info             : rgb(230, 250, 251);
+
+/********** MIXING ***************/
+
+* {
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+    -moz-box-sizing: border-box;    /* Firefox, other Gecko */
+    box-sizing: border-box;         /* Opera/IE 8+ */
+}
+
+@mixin inline-flex {
+    display: -webkit-inline-box;
+    display: -webkit-inline-flex;
+    display: -moz-inline-flex;
+    display: -ms-inline-flexbox;
+    display: inline-flex;
+}
+
+@mixin flex-block {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flexbox;
+    display: flex;
+    align-items: center;
+}
+
+@mixin ellipsis-line($lines-to-show: 4, $font-size: 15px, $line-height: 1.4){
+    margin: 0;
+    height: $font-size*$line-height*$lines-to-show; /* Fallback for non-webkit */
+
+    font-size: $font-size;
+    line-height: $line-height;
+    -webkit-line-clamp: $lines-to-show;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
