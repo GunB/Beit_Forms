@@ -1,24 +1,35 @@
-/********** MEDIA QUERIES **************/
-
 main{
-
     @include flex-block;
-    *{
-        width: 100%;
-    }
-    .form1{
-        margin: 0 auto;
-        @include flex-order(2);
-    }
+    align-items: flex-start;
 
     aside{
-        @include flex-order(1);
-        //background-color:#ddd;
-
         border:{
             width: $basic-border;
             style: solid;
-            color: $font-color-icons;
+        }
+
+        padding-bottom: $interlineado;
+
+        .user-saved{
+            .form-saved{
+                margin: $interlineado;
+                @include border-radius($border-radius);
+                header{
+                    @include border-radius($border-radius);
+                }
+                border:{
+                    width: 1px;
+                    style: solid;
+                }
+                section{
+                    padding: $interlineado + $interlineado;
+                }
+            }
+            
+            
+        }
+        nav{
+            text-align: right;
         }
         //@include border-radius($border-radius);        
     }
@@ -26,8 +37,7 @@ main{
 
 .form{
     fieldset{
-        border: 1px solid $border-color;
-        //box-shadow: 0 0 0 1px black; // Outside black border 1px
+        border: 1px solid rgba($opaque-black, 0.5);
         border-top: 0;
     }
     legend{
@@ -37,9 +47,7 @@ main{
         display: none;
     }
     .form-group{
-        &:nth-child(2n+1){
-            background: $background-table-color;
-        }
+
         @include flex-block;
         flex-wrap: wrap;
         width: 100%;
@@ -67,13 +75,11 @@ main{
 }
 
 header{
-    background: $header-bg;
     padding: $padding-title;
-    border: 1px solid $border-color;
+    border: 1px solid rgba($opaque-black, 0.5);
     @include flex-block;
     justify-content: space-between;
     h2{
-        font-size: $font-size-title;
         @include inline-flex;
         align-items: center;
         font-weight: bold;

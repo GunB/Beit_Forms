@@ -9,796 +9,828 @@
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width">
         <link href="css/main.css" rel="stylesheet" type="text/css"/>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
     </head>
 
     <body>
-
         <header>
             <h1>
                 Formulario de pruebas
-            </h1>            
+            </h1>
         </header>
+
+
         <main>
-            <form class="accordion form form1" name="form1">
-                <ul>
-                    <li>
-                        <input type="checkbox">
-                        <i></i>
-                        <header>
-                            <h2>
-                                <i class="list-item">1</i>
-                                Ingrese los datos para realizar el pago
-                            </h2>
-                        </header>
-                        <section>
-                            <fieldset>
-                                <legend>Ingrese los datos para realizar el pago</legend>
-                                <div class="form-group">
-                                    <label for="clave">Clave:</label>
-                                    <input name="clave" type="text" id="clave" value="1111111111111111">
-                                </div>
+            <section class="main">
+                <form class="accordion form form1" name="form1">
+                    <ul>
+                        <li>
+                            <input type="checkbox">
+                            <i class="expand"></i>
+                            <header>
+                                <h2>
+                                    <i class="list-item">1</i>
+                                    Ingrese los datos para realizar el pago
+                                </h2>
+                            </header>
+                            <section>
+                                <fieldset>
+                                    <legend>Ingrese los datos para realizar el pago</legend>
+                                    <div class="form-group">
+                                        <label for="clave">Clave:</label>
+                                        <input name="clave" type="text" id="clave" value="1111111111111111">
+                                    </div>
 
-                                <div class="form-group">
-                                    <label for="merchantId">Usuario:</label>
-                                    <input name="merchantId" id="merchantId" type="text" value="1">
-                                </div>
+                                    <div class="form-group">
+                                        <label for="merchantId">Usuario:</label>
+                                        <input name="merchantId" id="merchantId" type="text" value="1">
+                                    </div>
 
-                                <div class="form-group">
-                                    <label for="accountId">Cuenta:</label>
-                                    <input name="accountId" type="text" id="accountId">
-                                </div>
+                                    <div class="form-group">
+                                        <label for="accountId">Cuenta:</label>
+                                        <input name="accountId" type="text" id="accountId">
+                                    </div>
 
-                                <div class="form-group">
-                                    <label for="description">Descripción:</label>
-                                    <input name="description" type="text" id="description">
-                                </div>
+                                    <div class="form-group">
+                                        <label for="description">Descripción:</label>
+                                        <input name="description" type="text" id="description">
+                                    </div>
 
-                                <div class="form-group">
-                                    <label for="referenceCode">Referencia:</label>
-                                    <input name="referenceCode" type="text" placeholder="Número único que no se debe repetir" id="referenceCode">
-                                </div>
+                                    <div class="form-group">
+                                        <label for="referenceCode">Referencia:</label>
+                                        <input name="referenceCode" type="text" placeholder="Número único que no se debe repetir" id="referenceCode">
+                                    </div>
 
-                                <div class="form-group">
-                                    <label for="amount">Valor:</label>
-                                    <input name="amount" type="text" id="amount">
-                                </div>
+                                    <div class="form-group">
+                                        <label for="amount">Valor:</label>
+                                        <input name="amount" type="text" id="amount">
+                                    </div>
 
-                                <div class="form-group">
-                                    <label for="tax">IVA:</label>
-                                    <input name="tax" type="text" id="tax">
-                                </div>
+                                    <div class="form-group">
+                                        <label for="tax">IVA:</label>
+                                        <input name="tax" type="text" id="tax">
+                                    </div>
 
-                                <div class="form-group">
-                                    <label for="taxReturnBase">Base devolución IVA:</label>
-                                    <input name="taxReturnBase" type="text" id="taxReturnBase">
-                                </div>
+                                    <div class="form-group">
+                                        <label for="taxReturnBase">Base devolución IVA:</label>
+                                        <input name="taxReturnBase" type="text" id="taxReturnBase">
+                                    </div>
 
-                                <div class="form-group">
-                                    <label for="additionalValue">Valor adicional:</label>
-                                    <input name="additionalValue" type="text" id="additionalValue">
-                                </div>
+                                    <div class="form-group">
+                                        <label for="additionalValue">Valor adicional:</label>
+                                        <input name="additionalValue" type="text" id="additionalValue">
+                                    </div>
 
-                                <div class="form-group">
-                                    <label for="discount">Descuento:</label>
-                                    <input name="discount" type="text" id="discount">
-                                </div>
+                                    <div class="form-group">
+                                        <label for="discount">Descuento:</label>
+                                        <input name="discount" type="text" id="discount">
+                                    </div>
 
-                                <div class="form-group">
-                                    <label for="currency">Moneda:</label>
-                                    <select name="currency" id="currency">
-                                        <option value="USD">USD</option>
-                                        <option value="COP" selected="">COP</option>
-                                        <option value="EUR">EUR</option>
-                                        <option value="GBP">GBP</option>
-                                        <option value="MXN">MXN</option>
-                                        <option value="VEB">VEB</option>
-                                        <option value="BRL">BRL</option>
-                                        <option value="PEN">PEN</option>
-                                        <option value="CLP">CLP</option>
-                                        <option value="ARS">ARS</option>
-                                        <option value="CAD">CAD</option>
-                                        <option value="DOP">DOP</option>
-                                        <option value="AWG">AWG</option>
-                                        <option value="CRC">CRC</option>
-                                        <option value="PAB">PAB</option>
-                                        <option value="VEF">VEF</option>
-                                        <option value="ANG">ANG</option>
-                                        <option value="INR">INR</option>
-                                    </select>
-                                </div>
+                                    <div class="form-group">
+                                        <label for="currency">Moneda:</label>
+                                        <select name="currency" id="currency">
+                                            <option value="USD">USD</option>
+                                            <option value="COP" selected="">COP</option>
+                                            <option value="EUR">EUR</option>
+                                            <option value="GBP">GBP</option>
+                                            <option value="MXN">MXN</option>
+                                            <option value="VEB">VEB</option>
+                                            <option value="BRL">BRL</option>
+                                            <option value="PEN">PEN</option>
+                                            <option value="CLP">CLP</option>
+                                            <option value="ARS">ARS</option>
+                                            <option value="CAD">CAD</option>
+                                            <option value="DOP">DOP</option>
+                                            <option value="AWG">AWG</option>
+                                            <option value="CRC">CRC</option>
+                                            <option value="PAB">PAB</option>
+                                            <option value="VEF">VEF</option>
+                                            <option value="ANG">ANG</option>
+                                            <option value="INR">INR</option>
+                                        </select>
+                                    </div>
 
-                                <div class="form-group">
-                                    <label for="expirationDate">Fecha Expiración:</label>
-                                    <input name="expirationDate" type="text" id="expirationDate">
-                                </div>
+                                    <div class="form-group">
+                                        <label for="expirationDate">Fecha Expiración:</label>
+                                        <input name="expirationDate" type="text" id="expirationDate">
+                                    </div>
 
-                                <div class="form-group">
-                                    <label for="buyerFullName">Nombre:</label>
-                                    <input name="buyerFullName" type="text" id="buyerFullName">
-                                </div>
+                                    <div class="form-group">
+                                        <label for="buyerFullName">Nombre:</label>
+                                        <input name="buyerFullName" type="text" id="buyerFullName">
+                                    </div>
 
-                                <div class="form-group">
-                                    <label for="buyerEmail">Email:</label>
-                                    <input name="buyerEmail" type="text" id="buyerEmail">
-                                </div>
+                                    <div class="form-group">
+                                        <label for="buyerEmail">Email:</label>
+                                        <input name="buyerEmail" type="text" id="buyerEmail">
+                                    </div>
 
-                                <div class="form-group">
-                                    <label for="billingCity">Ciudad de facturación:</label>
-                                    <input name="billingCity" type="text" id="billingCity">
-                                </div>
+                                    <div class="form-group">
+                                        <label for="billingCity">Ciudad de facturación:</label>
+                                        <input name="billingCity" type="text" id="billingCity">
+                                    </div>
 
-                                <div class="form-group">
-                                    <label for="billingAddress">Dirrección de facturación:</label>
-                                    <input name="billingAddress" type="text" id="billingAddress">
-                                </div>
+                                    <div class="form-group">
+                                        <label for="billingAddress">Dirrección de facturación:</label>
+                                        <input name="billingAddress" type="text" id="billingAddress">
+                                    </div>
 
-                                <div class="form-group">
-                                    <label for="billingCountry">País de facturación:</label>
-                                    <input name="billingCountry" type="text" id="billingCountry">
-                                </div>
+                                    <div class="form-group">
+                                        <label for="billingCountry">País de facturación:</label>
+                                        <input name="billingCountry" type="text" id="billingCountry">
+                                    </div>
 
-                                <div class="form-group">
-                                    <label for="algoritmo">Algoritmo de la firma:</label>
-                                    <select name="algorithmSignature" id="algoritmo">
-                                        <option value="">Ninguno</option>
-                                        <option value="md5" selected="">MD5</option>
-                                        <option value="sha">SHA</option>
-                                    </select>
-                                </div>
+                                    <div class="form-group">
+                                        <label for="algoritmo">Algoritmo de la firma:</label>
+                                        <select name="algorithmSignature" id="algoritmo">
+                                            <option value="">Ninguno</option>
+                                            <option value="md5" selected="">MD5</option>
+                                            <option value="sha">SHA</option>
+                                        </select>
+                                    </div>
 
-                                <div class="form-group">
-                                    <label for="firma">Firma digital:</label>
-                                    <input name="signature" type="text" id="firma">
-                                    <a href="#" onclick="generarFirma()" class="button">(generar)</a>
-                                </div>
+                                    <div class="form-group">
+                                        <label for="firma">Firma digital:</label>
+                                        <input name="signature" type="text" id="firma">
+                                        <a href="#" onclick="generarFirma()" class="button small">(generar)</a>
+                                    </div>
 
-                                <div class="form-group">
-                                    <label for="url_confirmacion">Url de confirmación:</label>
-                                    <input name="confirmationUrl" type="text" id="url_confirmacion">
-                                </div>
+                                    <div class="form-group">
+                                        <label for="url_confirmacion">Url de confirmación:</label>
+                                        <input name="confirmationUrl" type="text" id="url_confirmacion">
+                                    </div>
 
-                                <div class="form-group">
-                                    <label for="url_respuesta">Url de respuesta:</label>
-                                    <input name="responseUrl" type="text" id="url_respuesta">
-                                </div>
+                                    <div class="form-group">
+                                        <label for="url_respuesta">Url de respuesta:</label>
+                                        <input name="responseUrl" type="text" id="url_respuesta">
+                                    </div>
 
-                                <div class="form-group">
-                                    <label for="urlAprobada">Url de respuesta aprobada:</label>
-                                    <input name="approvedResponseUrl" type="text" id="urlAprobada">
-                                </div>
+                                    <div class="form-group">
+                                        <label for="urlAprobada">Url de respuesta aprobada:</label>
+                                        <input name="approvedResponseUrl" type="text" id="urlAprobada">
+                                    </div>
 
-                                <div class="form-group">
-                                    <label for="urlEnValidacion">Url de respuesta pendiente:</label>
-                                    <input name="pendingResponseUrl" type="text" id="urlEnValidacion">
-                                </div>
+                                    <div class="form-group">
+                                        <label for="urlEnValidacion">Url de respuesta pendiente:</label>
+                                        <input name="pendingResponseUrl" type="text" id="urlEnValidacion">
+                                    </div>
 
-                                <div class="form-group">
-                                    <label for="urlRechazada">Url de respuesta rechazada:</label>
-                                    <input name="declinedResponseUrl" type="text" id="urlRechazada">
-                                </div>
+                                    <div class="form-group">
+                                        <label for="urlRechazada">Url de respuesta rechazada:</label>
+                                        <input name="declinedResponseUrl" type="text" id="urlRechazada">
+                                    </div>
 
-                                <div class="form-group">
-                                    <label for="sourceUrl">Url Origen (Botón de Pago):</label>
-                                    <input name="sourceUrl" type="text" id="sourceUrl">
-                                </div>
+                                    <div class="form-group">
+                                        <label for="sourceUrl">Url Origen (Botón de Pago):</label>
+                                        <input name="sourceUrl" type="text" id="sourceUrl">
+                                    </div>
 
-                                <div class="form-group">
-                                    <label for="partnerId">Partner Id:</label>
-                                    <input name="partnerId" type="text" id="partnerId">
-                                </div>
+                                    <div class="form-group">
+                                        <label for="partnerId">Partner Id:</label>
+                                        <input name="partnerId" type="text" id="partnerId">
+                                    </div>
 
-                                <div class="form-group">
-                                    <label for="prueba">Pruebas:</label>
-                                    <input name="test" type="checkbox" id="prueba" value="1">
-                                </div>
+                                    <div class="form-group">
+                                        <label for="prueba">Pruebas:</label>
+                                        <input name="test" type="checkbox" id="prueba" value="1">
+                                    </div>
 
-                                <div class="form-group">
-                                    <label for="template">Plantilla:</label>
-                                    <input name="template" type="text" id="template">
-                                </div>
-                                <div class="form-group">
-                                    <label for="airline">Código de la aerolínea:</label>
-                                    <input name="airline" type="text" id="airline">
-                                </div>
+                                    <div class="form-group">
+                                        <label for="template">Plantilla:</label>
+                                        <input name="template" type="text" id="template">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="airline">Código de la aerolínea:</label>
+                                        <input name="airline" type="text" id="airline">
+                                    </div>
 
-                                <div class="form-group">
-                                    <label for="paymentMethods">Tipos de Medios de Pago:</label>
-                                    <input name="paymentMethods" type="text" id="paymentMethods">
-                                </div>
+                                    <div class="form-group">
+                                        <label for="paymentMethods">Tipos de Medios de Pago:</label>
+                                        <input name="paymentMethods" type="text" id="paymentMethods">
+                                    </div>
 
-                                <div class="form-group">
-                                    <label for="iin">Bines admitidos:</label>
-                                    <input name="iin" type="text" id="iin">
-                                </div>
+                                    <div class="form-group">
+                                        <label for="iin">Bines admitidos:</label>
+                                        <input name="iin" type="text" id="iin">
+                                    </div>
 
-                                <div class="form-group">
-                                    <label for="selectedPaymentMethod">Preselección medio de pago:</label>
-                                    <input name="selectedPaymentMethod" type="text" id="selectedPaymentMethod">
-                                </div>
+                                    <div class="form-group">
+                                        <label for="selectedPaymentMethod">Preselección medio de pago:</label>
+                                        <input name="selectedPaymentMethod" type="text" id="selectedPaymentMethod">
+                                    </div>
 
-                                <div class="form-group">
-                                    <label for="paymentMethodsDescription">Descripción Tipos de Medios de Pago:</label>
-                                    <input name="paymentMethodsDescription" type="text" id="paymentMethodsDescription">
-                                </div>
+                                    <div class="form-group">
+                                        <label for="paymentMethodsDescription">Descripción Tipos de Medios de Pago:</label>
+                                        <input name="paymentMethodsDescription" type="text" id="paymentMethodsDescription">
+                                    </div>
 
-                                <div class="form-group">
-                                    <label for="administrativeFee">Tarifa administrativa:</label>
-                                    <input name="administrativeFee" type="text" id="administrativeFee">
-                                </div>
+                                    <div class="form-group">
+                                        <label for="administrativeFee">Tarifa administrativa:</label>
+                                        <input name="administrativeFee" type="text" id="administrativeFee">
+                                    </div>
 
-                                <div class="form-group">
-                                    <label for="taxAdministrativeFee">Iva de la tarifa administrativa:</label>
-                                    <input name="taxAdministrativeFee" type="text" id="taxAdministrativeFee">
-                                </div>
+                                    <div class="form-group">
+                                        <label for="taxAdministrativeFee">Iva de la tarifa administrativa:</label>
+                                        <input name="taxAdministrativeFee" type="text" id="taxAdministrativeFee">
+                                    </div>
 
-                                <div class="form-group">
-                                    <label for="taxAdministrativeFeeReturnBase">Base devolución IVA Tarifa Administrativa:</label>
-                                    <input name="taxAdministrativeFeeReturnBase" type="text" id="taxAdministrativeFeeReturnBase">
-                                </div>
+                                    <div class="form-group">
+                                        <label for="taxAdministrativeFeeReturnBase">Base devolución IVA Tarifa Administrativa:</label>
+                                        <input name="taxAdministrativeFeeReturnBase" type="text" id="taxAdministrativeFeeReturnBase">
+                                    </div>
 
-                            </fieldset>
-                        </section>
-                    </li>
-                    <li>
-                        <input type="checkbox" checked>
-                        <header>
-                            <h2>
-                                <i class="list-item">2</i>
-                                DATOS DEL ENVÍO
-                            </h2>
-                        </header>
-                        <section>
-                            <fieldset>
-                                <legend>
-                                    DATOS DEL ENVÍO:
-                                </legend>
+                                </fieldset>
+                            </section>
+                        </li>
+                        <li>
+                            <input type="checkbox" checked>
+                            <i class="expand"></i>
+                            <header>
+                                <h2>
+                                    <i class="list-item">2</i>
+                                    DATOS DEL ENVÍO
+                                </h2>
+                            </header>
+                            <section>
+                                <fieldset>
+                                    <legend>
+                                        DATOS DEL ENVÍO:
+                                    </legend>
 
-                                <div class="form-group">
-                                    <label for="shippingAddress">Dirección de Entrega de la Mercancía:</label>
-                                    <input name="shippingAddress" type="text" id="shippingAddress">
-                                </div>
+                                    <div class="form-group">
+                                        <label for="shippingAddress">Dirección de Entrega de la Mercancía:</label>
+                                        <input name="shippingAddress" type="text" id="shippingAddress">
+                                    </div>
 
-                                <div class="form-group">
-                                    <label for="shippingAddress2">Dirección de Entrega 2:</label>
-                                    <input name="shippingAddress2" type="text" id="shippingAddress2">
-                                </div>
+                                    <div class="form-group">
+                                        <label for="shippingAddress2">Dirección de Entrega 2:</label>
+                                        <input name="shippingAddress2" type="text" id="shippingAddress2">
+                                    </div>
 
-                                <div class="form-group">
-                                    <label for="shippingCity">Ciudad de Entrega de la Mercancía: (*COD)</label>
-                                    <input name="shippingCity" type="text" id="shippingCity">
-                                </div>
-                                <div class="form-group">
-                                    <label for="shippingCountry">País de Entrega:</label>
-                                    <select name="shippingCountry" id="shippingCountry">
-                                        <option value="AR">Argentina</option>
-                                        <option value="BR">Brasil</option>
-                                        <option value="CA">Canada</option>
-                                        <option value="CL">Chile</option>
-                                        <option value="CO" selected="selected">Colombia</option>
-                                        <option value="FR">Francia</option>
-                                        <option value="DE">Alemania</option>
-                                        <option value="GR">Grecia</option>
-                                        <option value="IT">Italia</option>
-                                        <option value="MX">México</option>
-                                        <option value="PA">Panamá</option>
-                                        <option value="PY">Paraguay</option>
-                                        <option value="PE">Perú</option>
-                                        <option value="PT">Portugal</option>
-                                        <option value="ES">España</option>
-                                        <option value="GB">United Kingdom</option>
-                                        <option value="US">United States</option>
-                                        <option value="AF">Afghanistan</option>
-                                        <option value="AX">Åland Islands</option>
-                                        <option value="AL">Albania</option>
-                                        <option value="DZ">Algeria</option>
-                                        <option value="AS">American Samoa</option>
-                                        <option value="AD">Andorra</option>
-                                        <option value="AO">Angola</option>
-                                        <option value="AI">Anguilla</option>
-                                        <option value="AQ">Antarctica</option>
-                                        <option value="AG">Antigua And Barbuda</option>
-                                        <option value="AM">Armenia</option>
-                                        <option value="AW">Aruba</option>
-                                        <option value="AU">Australia</option>
-                                        <option value="AT">Austria</option>
-                                        <option value="AZ">Azerbaijan</option>
-                                        <option value="BS">Bahamas</option>
-                                        <option value="BH">Bahrain</option>
-                                        <option value="BD">Bangladesh</option>
-                                        <option value="BB">Barbados</option>
-                                        <option value="BY">Belarus</option>
-                                        <option value="BE">Belgium</option>
-                                        <option value="BZ">Belize</option>
-                                        <option value="BJ">Benin</option>
-                                        <option value="BM">Bermuda</option>
-                                        <option value="BT">Bhutan</option>
-                                        <option value="BO">Bolivia, Plurinational State Of</option>
-                                        <option value="BQ">Bonaire, Sint Eustatius And Saba</option>
-                                        <option value="BA">Bosnia And Herzegovina</option>
-                                        <option value="BW">Botswana</option>
-                                        <option value="BV">Bouvet Island</option>
-                                        <option value="IO">British Indian Ocean Territory</option>
-                                        <option value="BN">Brunei Darussalam</option>
-                                        <option value="BG">Bulgaria</option>
-                                        <option value="BF">Burkina Faso</option>
-                                        <option value="BI">Burundi</option>
-                                        <option value="KH">Cambodia</option>
-                                        <option value="CM">Cameroon</option>
-                                        <option value="CV">Cape Verde</option>
-                                        <option value="KY">Cayman Islands</option>
-                                        <option value="CF">Central African Republic</option>
-                                        <option value="TD">Chad</option>
-                                        <option value="CN">China</option>
-                                        <option value="CX">Christmas Island</option>
-                                        <option value="CC">Cocos (keeling) Islands</option>
-                                        <option value="KM">Comoros</option>
-                                        <option value="CG">Congo</option>
-                                        <option value="CD">Congo, The Democratic Republic Of The</option>
-                                        <option value="CK">Cook Islands</option>
-                                        <option value="CR">Costa Rica</option>
-                                        <option value="CI">Côte D'ivoire</option>
-                                        <option value="HR">Croatia</option>
-                                        <option value="CU">Cuba</option>
-                                        <option value="CW">Curacao</option>
-                                        <option value="CY">Cyprus</option>
-                                        <option value="CZ">Czech Republic</option>
-                                        <option value="DK">Denmark</option>
-                                        <option value="DJ">Djibouti</option>
-                                        <option value="DM">Dominica</option>
-                                        <option value="DO">Dominican Republic</option>
-                                        <option value="EC">Ecuador</option>
-                                        <option value="EG">Egypt</option>
-                                        <option value="SV">El Salvador</option>
-                                        <option value="GQ">Equatorial Guinea</option>
-                                        <option value="ER">Eritrea</option>
-                                        <option value="EE">Estonia</option>
-                                        <option value="ET">Ethiopia</option>
-                                        <option value="FK">Falkland Islands (malvinas)</option>
-                                        <option value="FO">Faroe Islands</option>
-                                        <option value="FJ">Fiji</option>
-                                        <option value="FI">Finland</option>
-                                        <option value="GF">French Guiana</option>
-                                        <option value="PF">French Polynesia</option>
-                                        <option value="TF">French Southern Territories</option>
-                                        <option value="GA">Gabon</option>
-                                        <option value="GM">Gambia</option>
-                                        <option value="GE">Georgia</option>
-                                        <option value="GH">Ghana</option>
-                                        <option value="GI">Gibraltar</option>
-                                        <option value="GL">Greenland</option>
-                                        <option value="GD">Grenada</option>
-                                        <option value="GP">Guadeloupe</option>
-                                        <option value="GU">Guam</option>
-                                        <option value="GT">Guatemala</option>
-                                        <option value="GG">Guernsey</option>
-                                        <option value="GN">Guinea</option>
-                                        <option value="GW">Guinea-bissau</option>
-                                        <option value="GY">Guyana</option>
-                                        <option value="HT">Haiti</option>
-                                        <option value="HM">Heard Island And Mcdonald Islands</option>
-                                        <option value="VA">Holy See (vatican City State)</option>
-                                        <option value="HN">Honduras</option>
-                                        <option value="HK">Hong Kong</option>
-                                        <option value="HU">Hungary</option>
-                                        <option value="IS">Iceland</option>
-                                        <option value="IN">India</option>
-                                        <option value="ID">Indonesia</option>
-                                        <option value="IR">Iran, Islamic Republic Of</option>
-                                        <option value="IQ">Iraq</option>
-                                        <option value="IE">Ireland</option>
-                                        <option value="IM">Isle Of Man</option>
-                                        <option value="IL">Israel</option>
-                                        <option value="JM">Jamaica</option>
-                                        <option value="JP">Japan</option>
-                                        <option value="JE">Jersey</option>
-                                        <option value="JO">Jordan</option>
-                                        <option value="KZ">Kazakhstan</option>
-                                        <option value="KE">Kenya</option>
-                                        <option value="KI">Kiribati</option>
-                                        <option value="KP">Korea, Democratic People's Republic Of</option>
-                                        <option value="KR">Korea, Republic Of</option>
-                                        <option value="KW">Kuwait</option>
-                                        <option value="KG">Kyrgyzstan</option>
-                                        <option value="LA">Lao People's Democratic Republic</option>
-                                        <option value="LV">Latvia</option>
-                                        <option value="LB">Lebanon</option>
-                                        <option value="LS">Lesotho</option>
-                                        <option value="LR">Liberia</option>
-                                        <option value="LY">Libya</option>
-                                        <option value="LI">Liechtenstein</option>
-                                        <option value="LT">Lithuania</option>
-                                        <option value="LU">Luxembourg</option>
-                                        <option value="MO">Macao</option>
-                                        <option value="MK">Macedonia, The Former Yugoslav Republic Of</option>
-                                        <option value="MG">Madagascar</option>
-                                        <option value="MW">Malawi</option>
-                                        <option value="MY">Malaysia</option>
-                                        <option value="MV">Maldives</option>
-                                        <option value="ML">Mali</option>
-                                        <option value="MT">Malta</option>
-                                        <option value="MH">Marshall Islands</option>
-                                        <option value="MQ">Martinique</option>
-                                        <option value="MR">Mauritania</option>
-                                        <option value="MU">Mauritius</option>
-                                        <option value="YT">Mayotte</option>
-                                        <option value="FM">Micronesia, Federated States Of</option>
-                                        <option value="MD">Moldova, Republic Of</option>
-                                        <option value="MC">Monaco</option>
-                                        <option value="MN">Mongolia</option>
-                                        <option value="ME">Montenegro</option>
-                                        <option value="MS">Montserrat</option>
-                                        <option value="MA">Morocco</option>
-                                        <option value="MZ">Mozambique</option>
-                                        <option value="MM">Myanmar</option>
-                                        <option value="NA">Namibia</option>
-                                        <option value="NR">Nauru</option>
-                                        <option value="NP">Nepal</option>
-                                        <option value="NL">Netherlands</option>
-                                        <option value="NC">New Caledonia</option>
-                                        <option value="NZ">New Zealand</option>
-                                        <option value="NI">Nicaragua</option>
-                                        <option value="NE">Niger</option>
-                                        <option value="NG">Nigeria</option>
-                                        <option value="NU">Niue</option>
-                                        <option value="NF">Norfolk Island</option>
-                                        <option value="MP">Northern Mariana Islands</option>
-                                        <option value="NO">Norway</option>
-                                        <option value="OM">Oman</option>
-                                        <option value="PK">Pakistan</option>
-                                        <option value="PW">Palau</option>
-                                        <option value="PS">Palestinian Territory, Occupied</option>
-                                        <option value="PG">Papua New Guinea</option>
-                                        <option value="PH">Philippines</option>
-                                        <option value="PN">Pitcairn</option>
-                                        <option value="PL">Poland</option>
-                                        <option value="PR">Puerto Rico</option>
-                                        <option value="QA">Qatar</option>
-                                        <option value="RE">Réunion</option>
-                                        <option value="RO">Romania</option>
-                                        <option value="RU">Russian Federation</option>
-                                        <option value="RW">Rwanda</option>
-                                        <option value="BL">Saint Barthelemy</option>
-                                        <option value="SH">Saint Helena, Ascension And Tristan Da Cunha</option>
-                                        <option value="KN">Saint Kitts And Nevis</option>
-                                        <option value="LC">Saint Lucia</option>
-                                        <option value="MF">Saint Martin (french Part)</option>
-                                        <option value="PM">Saint Pierre And Miquelon</option>
-                                        <option value="VC">Saint Vincent And The Grenadines</option>
-                                        <option value="WS">Samoa</option>
-                                        <option value="SM">San Marino</option>
-                                        <option value="ST">Sao Tome And Principe</option>
-                                        <option value="SA">Saudi Arabia</option>
-                                        <option value="SN">Senegal</option>
-                                        <option value="RS">Serbia</option>
-                                        <option value="SC">Seychelles</option>
-                                        <option value="SL">Sierra Leone</option>
-                                        <option value="SG">Singapore</option>
-                                        <option value="SX">Sint Maarten (dutch Part)</option>
-                                        <option value="SK">Slovakia</option>
-                                        <option value="SI">Slovenia</option>
-                                        <option value="SB">Solomon Islands</option>
-                                        <option value="SO">Somalia</option>
-                                        <option value="ZA">South Africa</option>
-                                        <option value="GS">South Georgia And The South Sandwich Islands</option>
-                                        <option value="LK">Sri Lanka</option>
-                                        <option value="SD">Sudan</option>
-                                        <option value="SR">Suriname</option>
-                                        <option value="SS">South Sudan</option>
-                                        <option value="SJ">Svalbard And Jan Mayen</option>
-                                        <option value="SZ">Swaziland</option>
-                                        <option value="SE">Sweden</option>
-                                        <option value="CH">Switzerland</option>
-                                        <option value="SY">Syrian Arab Republic</option>
-                                        <option value="TW">Taiwan, Province Of China</option>
-                                        <option value="TJ">Tajikistan</option>
-                                        <option value="TZ">Tanzania, United Republic Of</option>
-                                        <option value="TH">Thailand</option>
-                                        <option value="TL">Timor-leste</option>
-                                        <option value="TG">Togo</option>
-                                        <option value="TK">Tokelau</option>
-                                        <option value="TO">Tonga</option>
-                                        <option value="TT">Trinidad And Tobago</option>
-                                        <option value="TN">Tunisia</option>
-                                        <option value="TR">Turkey</option>
-                                        <option value="TM">Turkmenistan</option>
-                                        <option value="TC">Turks And Caicos Islands</option>
-                                        <option value="TV">Tuvalu</option>
-                                        <option value="UG">Uganda</option>
-                                        <option value="UA">Ukraine</option>
-                                        <option value="AE">United Arab Emirates</option>
-                                        <option value="UM">United States Minor Outlying Islands</option>
-                                        <option value="UY">Uruguay</option>
-                                        <option value="UZ">Uzbekistan</option>
-                                        <option value="VU">Vanuatu</option>
-                                        <option value="VE">Venezuela, Bolivarian Republic Of</option>
-                                        <option value="VN">Viet Nam</option>
-                                        <option value="VG">Virgin Islands, British</option>
-                                        <option value="VI">Virgin Islands, U.s.</option>
-                                        <option value="WF">Wallis And Futuna</option>
-                                        <option value="EH">Western Sahara</option>
-                                        <option value="YE">Yemen</option>
-                                        <option value="ZM">Zambia</option>
-                                        <option value="ZW">Zimbabwe</option>
-                                    </select> 
-                                </div>
+                                    <div class="form-group">
+                                        <label for="shippingCity">Ciudad de Entrega de la Mercancía: (*COD)</label>
+                                        <input name="shippingCity" type="text" id="shippingCity">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="shippingCountry">País de Entrega:</label>
+                                        <select name="shippingCountry" id="shippingCountry">
+                                            <option value="AR">Argentina</option>
+                                            <option value="BR">Brasil</option>
+                                            <option value="CA">Canada</option>
+                                            <option value="CL">Chile</option>
+                                            <option value="CO" selected="selected">Colombia</option>
+                                            <option value="FR">Francia</option>
+                                            <option value="DE">Alemania</option>
+                                            <option value="GR">Grecia</option>
+                                            <option value="IT">Italia</option>
+                                            <option value="MX">México</option>
+                                            <option value="PA">Panamá</option>
+                                            <option value="PY">Paraguay</option>
+                                            <option value="PE">Perú</option>
+                                            <option value="PT">Portugal</option>
+                                            <option value="ES">España</option>
+                                            <option value="GB">United Kingdom</option>
+                                            <option value="US">United States</option>
+                                            <option value="AF">Afghanistan</option>
+                                            <option value="AX">Åland Islands</option>
+                                            <option value="AL">Albania</option>
+                                            <option value="DZ">Algeria</option>
+                                            <option value="AS">American Samoa</option>
+                                            <option value="AD">Andorra</option>
+                                            <option value="AO">Angola</option>
+                                            <option value="AI">Anguilla</option>
+                                            <option value="AQ">Antarctica</option>
+                                            <option value="AG">Antigua And Barbuda</option>
+                                            <option value="AM">Armenia</option>
+                                            <option value="AW">Aruba</option>
+                                            <option value="AU">Australia</option>
+                                            <option value="AT">Austria</option>
+                                            <option value="AZ">Azerbaijan</option>
+                                            <option value="BS">Bahamas</option>
+                                            <option value="BH">Bahrain</option>
+                                            <option value="BD">Bangladesh</option>
+                                            <option value="BB">Barbados</option>
+                                            <option value="BY">Belarus</option>
+                                            <option value="BE">Belgium</option>
+                                            <option value="BZ">Belize</option>
+                                            <option value="BJ">Benin</option>
+                                            <option value="BM">Bermuda</option>
+                                            <option value="BT">Bhutan</option>
+                                            <option value="BO">Bolivia, Plurinational State Of</option>
+                                            <option value="BQ">Bonaire, Sint Eustatius And Saba</option>
+                                            <option value="BA">Bosnia And Herzegovina</option>
+                                            <option value="BW">Botswana</option>
+                                            <option value="BV">Bouvet Island</option>
+                                            <option value="IO">British Indian Ocean Territory</option>
+                                            <option value="BN">Brunei Darussalam</option>
+                                            <option value="BG">Bulgaria</option>
+                                            <option value="BF">Burkina Faso</option>
+                                            <option value="BI">Burundi</option>
+                                            <option value="KH">Cambodia</option>
+                                            <option value="CM">Cameroon</option>
+                                            <option value="CV">Cape Verde</option>
+                                            <option value="KY">Cayman Islands</option>
+                                            <option value="CF">Central African Republic</option>
+                                            <option value="TD">Chad</option>
+                                            <option value="CN">China</option>
+                                            <option value="CX">Christmas Island</option>
+                                            <option value="CC">Cocos (keeling) Islands</option>
+                                            <option value="KM">Comoros</option>
+                                            <option value="CG">Congo</option>
+                                            <option value="CD">Congo, The Democratic Republic Of The</option>
+                                            <option value="CK">Cook Islands</option>
+                                            <option value="CR">Costa Rica</option>
+                                            <option value="CI">Côte D'ivoire</option>
+                                            <option value="HR">Croatia</option>
+                                            <option value="CU">Cuba</option>
+                                            <option value="CW">Curacao</option>
+                                            <option value="CY">Cyprus</option>
+                                            <option value="CZ">Czech Republic</option>
+                                            <option value="DK">Denmark</option>
+                                            <option value="DJ">Djibouti</option>
+                                            <option value="DM">Dominica</option>
+                                            <option value="DO">Dominican Republic</option>
+                                            <option value="EC">Ecuador</option>
+                                            <option value="EG">Egypt</option>
+                                            <option value="SV">El Salvador</option>
+                                            <option value="GQ">Equatorial Guinea</option>
+                                            <option value="ER">Eritrea</option>
+                                            <option value="EE">Estonia</option>
+                                            <option value="ET">Ethiopia</option>
+                                            <option value="FK">Falkland Islands (malvinas)</option>
+                                            <option value="FO">Faroe Islands</option>
+                                            <option value="FJ">Fiji</option>
+                                            <option value="FI">Finland</option>
+                                            <option value="GF">French Guiana</option>
+                                            <option value="PF">French Polynesia</option>
+                                            <option value="TF">French Southern Territories</option>
+                                            <option value="GA">Gabon</option>
+                                            <option value="GM">Gambia</option>
+                                            <option value="GE">Georgia</option>
+                                            <option value="GH">Ghana</option>
+                                            <option value="GI">Gibraltar</option>
+                                            <option value="GL">Greenland</option>
+                                            <option value="GD">Grenada</option>
+                                            <option value="GP">Guadeloupe</option>
+                                            <option value="GU">Guam</option>
+                                            <option value="GT">Guatemala</option>
+                                            <option value="GG">Guernsey</option>
+                                            <option value="GN">Guinea</option>
+                                            <option value="GW">Guinea-bissau</option>
+                                            <option value="GY">Guyana</option>
+                                            <option value="HT">Haiti</option>
+                                            <option value="HM">Heard Island And Mcdonald Islands</option>
+                                            <option value="VA">Holy See (vatican City State)</option>
+                                            <option value="HN">Honduras</option>
+                                            <option value="HK">Hong Kong</option>
+                                            <option value="HU">Hungary</option>
+                                            <option value="IS">Iceland</option>
+                                            <option value="IN">India</option>
+                                            <option value="ID">Indonesia</option>
+                                            <option value="IR">Iran, Islamic Republic Of</option>
+                                            <option value="IQ">Iraq</option>
+                                            <option value="IE">Ireland</option>
+                                            <option value="IM">Isle Of Man</option>
+                                            <option value="IL">Israel</option>
+                                            <option value="JM">Jamaica</option>
+                                            <option value="JP">Japan</option>
+                                            <option value="JE">Jersey</option>
+                                            <option value="JO">Jordan</option>
+                                            <option value="KZ">Kazakhstan</option>
+                                            <option value="KE">Kenya</option>
+                                            <option value="KI">Kiribati</option>
+                                            <option value="KP">Korea, Democratic People's Republic Of</option>
+                                            <option value="KR">Korea, Republic Of</option>
+                                            <option value="KW">Kuwait</option>
+                                            <option value="KG">Kyrgyzstan</option>
+                                            <option value="LA">Lao People's Democratic Republic</option>
+                                            <option value="LV">Latvia</option>
+                                            <option value="LB">Lebanon</option>
+                                            <option value="LS">Lesotho</option>
+                                            <option value="LR">Liberia</option>
+                                            <option value="LY">Libya</option>
+                                            <option value="LI">Liechtenstein</option>
+                                            <option value="LT">Lithuania</option>
+                                            <option value="LU">Luxembourg</option>
+                                            <option value="MO">Macao</option>
+                                            <option value="MK">Macedonia, The Former Yugoslav Republic Of</option>
+                                            <option value="MG">Madagascar</option>
+                                            <option value="MW">Malawi</option>
+                                            <option value="MY">Malaysia</option>
+                                            <option value="MV">Maldives</option>
+                                            <option value="ML">Mali</option>
+                                            <option value="MT">Malta</option>
+                                            <option value="MH">Marshall Islands</option>
+                                            <option value="MQ">Martinique</option>
+                                            <option value="MR">Mauritania</option>
+                                            <option value="MU">Mauritius</option>
+                                            <option value="YT">Mayotte</option>
+                                            <option value="FM">Micronesia, Federated States Of</option>
+                                            <option value="MD">Moldova, Republic Of</option>
+                                            <option value="MC">Monaco</option>
+                                            <option value="MN">Mongolia</option>
+                                            <option value="ME">Montenegro</option>
+                                            <option value="MS">Montserrat</option>
+                                            <option value="MA">Morocco</option>
+                                            <option value="MZ">Mozambique</option>
+                                            <option value="MM">Myanmar</option>
+                                            <option value="NA">Namibia</option>
+                                            <option value="NR">Nauru</option>
+                                            <option value="NP">Nepal</option>
+                                            <option value="NL">Netherlands</option>
+                                            <option value="NC">New Caledonia</option>
+                                            <option value="NZ">New Zealand</option>
+                                            <option value="NI">Nicaragua</option>
+                                            <option value="NE">Niger</option>
+                                            <option value="NG">Nigeria</option>
+                                            <option value="NU">Niue</option>
+                                            <option value="NF">Norfolk Island</option>
+                                            <option value="MP">Northern Mariana Islands</option>
+                                            <option value="NO">Norway</option>
+                                            <option value="OM">Oman</option>
+                                            <option value="PK">Pakistan</option>
+                                            <option value="PW">Palau</option>
+                                            <option value="PS">Palestinian Territory, Occupied</option>
+                                            <option value="PG">Papua New Guinea</option>
+                                            <option value="PH">Philippines</option>
+                                            <option value="PN">Pitcairn</option>
+                                            <option value="PL">Poland</option>
+                                            <option value="PR">Puerto Rico</option>
+                                            <option value="QA">Qatar</option>
+                                            <option value="RE">Réunion</option>
+                                            <option value="RO">Romania</option>
+                                            <option value="RU">Russian Federation</option>
+                                            <option value="RW">Rwanda</option>
+                                            <option value="BL">Saint Barthelemy</option>
+                                            <option value="SH">Saint Helena, Ascension And Tristan Da Cunha</option>
+                                            <option value="KN">Saint Kitts And Nevis</option>
+                                            <option value="LC">Saint Lucia</option>
+                                            <option value="MF">Saint Martin (french Part)</option>
+                                            <option value="PM">Saint Pierre And Miquelon</option>
+                                            <option value="VC">Saint Vincent And The Grenadines</option>
+                                            <option value="WS">Samoa</option>
+                                            <option value="SM">San Marino</option>
+                                            <option value="ST">Sao Tome And Principe</option>
+                                            <option value="SA">Saudi Arabia</option>
+                                            <option value="SN">Senegal</option>
+                                            <option value="RS">Serbia</option>
+                                            <option value="SC">Seychelles</option>
+                                            <option value="SL">Sierra Leone</option>
+                                            <option value="SG">Singapore</option>
+                                            <option value="SX">Sint Maarten (dutch Part)</option>
+                                            <option value="SK">Slovakia</option>
+                                            <option value="SI">Slovenia</option>
+                                            <option value="SB">Solomon Islands</option>
+                                            <option value="SO">Somalia</option>
+                                            <option value="ZA">South Africa</option>
+                                            <option value="GS">South Georgia And The South Sandwich Islands</option>
+                                            <option value="LK">Sri Lanka</option>
+                                            <option value="SD">Sudan</option>
+                                            <option value="SR">Suriname</option>
+                                            <option value="SS">South Sudan</option>
+                                            <option value="SJ">Svalbard And Jan Mayen</option>
+                                            <option value="SZ">Swaziland</option>
+                                            <option value="SE">Sweden</option>
+                                            <option value="CH">Switzerland</option>
+                                            <option value="SY">Syrian Arab Republic</option>
+                                            <option value="TW">Taiwan, Province Of China</option>
+                                            <option value="TJ">Tajikistan</option>
+                                            <option value="TZ">Tanzania, United Republic Of</option>
+                                            <option value="TH">Thailand</option>
+                                            <option value="TL">Timor-leste</option>
+                                            <option value="TG">Togo</option>
+                                            <option value="TK">Tokelau</option>
+                                            <option value="TO">Tonga</option>
+                                            <option value="TT">Trinidad And Tobago</option>
+                                            <option value="TN">Tunisia</option>
+                                            <option value="TR">Turkey</option>
+                                            <option value="TM">Turkmenistan</option>
+                                            <option value="TC">Turks And Caicos Islands</option>
+                                            <option value="TV">Tuvalu</option>
+                                            <option value="UG">Uganda</option>
+                                            <option value="UA">Ukraine</option>
+                                            <option value="AE">United Arab Emirates</option>
+                                            <option value="UM">United States Minor Outlying Islands</option>
+                                            <option value="UY">Uruguay</option>
+                                            <option value="UZ">Uzbekistan</option>
+                                            <option value="VU">Vanuatu</option>
+                                            <option value="VE">Venezuela, Bolivarian Republic Of</option>
+                                            <option value="VN">Viet Nam</option>
+                                            <option value="VG">Virgin Islands, British</option>
+                                            <option value="VI">Virgin Islands, U.s.</option>
+                                            <option value="WF">Wallis And Futuna</option>
+                                            <option value="EH">Western Sahara</option>
+                                            <option value="YE">Yemen</option>
+                                            <option value="ZM">Zambia</option>
+                                            <option value="ZW">Zimbabwe</option>
+                                        </select> 
+                                    </div>
 
-                                <div class="form-group">
-                                    <label for="extra1">Extra 1:</label>
-                                    <input name="extra1" type="text" id="extra1">
-                                </div>
-                                <div class="form-group">
-                                    <label for="extra2">Extra 2:</label>
-                                    <input name="extra2" type="text" id="extra2">
-                                </div>
-                                <div class="form-group">
-                                    <label for="extra3">Extra 3:</label>
-                                    <input name="extra3" type="text" id="extra3">
-                                </div>
-                                <div class="form-group">
-                                    <label for="extra4">Extra 4:</label>
-                                    <input name="extra4" type="text" id="extra4">
-                                </div>
+                                    <div class="form-group">
+                                        <label for="extra1">Extra 1:</label>
+                                        <input name="extra1" type="text" id="extra1">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="extra2">Extra 2:</label>
+                                        <input name="extra2" type="text" id="extra2">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="extra3">Extra 3:</label>
+                                        <input name="extra3" type="text" id="extra3">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="extra4">Extra 4:</label>
+                                        <input name="extra4" type="text" id="extra4">
+                                    </div>
 
-                                <div class="form-group">
-                                    <label for="solicitarComentariosPagador">Solicitar comentarios del pagador:</label>
-                                    <input name="displayBuyerComments" type="checkbox" id="solicitarComentariosPagador" value="1">
-                                </div>
-                                <div class="form-group">
-                                    <label for="buyerCommentsLabel">Etiqueta para comentarios:</label>
-                                    <input name="buyerCommentsLabel" type="text" id="buyerCommentsLabel" value="" placeholder="es | en | pt">
-                                </div>
-                                <div class="form-group">
-                                    <label for="solicitarDatosEnvio">Solicitar datos de envío:</label>
-                                    <input name="displayShippingInformation" type="checkbox" id="solicitarDatosEnvio" value="1">
-                                </div>
+                                    <div class="form-group">
+                                        <label for="solicitarComentariosPagador">Solicitar comentarios del pagador:</label>
+                                        <input name="displayBuyerComments" type="checkbox" id="solicitarComentariosPagador" value="1">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="buyerCommentsLabel">Etiqueta para comentarios:</label>
+                                        <input name="buyerCommentsLabel" type="text" id="buyerCommentsLabel" value="" placeholder="es | en | pt">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="solicitarDatosEnvio">Solicitar datos de envío:</label>
+                                        <input name="displayShippingInformation" type="checkbox" id="solicitarDatosEnvio" value="1">
+                                    </div>
 
-                                <div class="form-group">
-                                    <label for="aplicaPagoContraEntrega">Pago contra entrega:</label>
-                                    <input name="isCashOnDeliveryApply" type="checkbox" id="aplicaPagoContraEntrega" value="1">
-                                </div>
-                            </fieldset>
-                        </section>
-                    </li>
-                    <li>
-                        <input type="checkbox" checked>
-                        <header>
-                            <h2>
-                                <i class="list-item">3</i>
-                                DATOS DE COMPRADOR: (OPCIONAL)
-                            </h2>
-                        </header>
-                        <section>
-                            <fieldset class="form_contraentrega">
-                                <legend>
+                                    <div class="form-group">
+                                        <label for="aplicaPagoContraEntrega">Pago contra entrega:</label>
+                                        <input name="isCashOnDeliveryApply" type="checkbox" id="aplicaPagoContraEntrega" value="1">
+                                    </div>
+                                </fieldset>
+                            </section>
+                        </li>
+                        <li class="form_contraentrega">
+                            <input type="checkbox" checked>
+                            <i class="expand"></i>
+                            <header>
+                                <h2>
+                                    <i class="list-item">3</i>
                                     DATOS DE COMPRADOR: (OPCIONAL)
-                                </legend>
+                                </h2>
+                            </header>
+                            <section>
+                                <fieldset>
+                                    <legend>
+                                        DATOS DE COMPRADOR: (OPCIONAL)
+                                    </legend>
 
-                                <div class="form-group">
-                                    <label for="buyerCountry">País Residencia:</label>
-                                    <input name="buyerCountry" type="text" id="buyerCountry">
-                                </div>
-                                <div class="form-group">
-                                    <label for="buyerState">Departamento/Región:</label>
-                                    <input name="buyerState" type="text" id="buyerState">
-                                </div>
-                                <div class="form-group">
-                                    <label for="buyerCity">Ciudad/Municipio:</label>
-                                    <input name="buyerCity" type="text" id="buyerCity">
-                                </div>
-                                <div class="form-group">
-                                    <label for="buyerDocumentType">Tipo Documento:</label>
-                                    <input name="buyerDocumentType" type="text" id="buyerDocumentType">
-                                </div>
-                                <div class="form-group">
-                                    <label for="buyerDocument">Número de Documento:</label>
-                                    <input name="buyerDocument" type="text" id="buyerDocument">
-                                </div>
+                                    <div class="form-group">
+                                        <label for="buyerCountry">País Residencia:</label>
+                                        <input name="buyerCountry" type="text" id="buyerCountry">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="buyerState">Departamento/Región:</label>
+                                        <input name="buyerState" type="text" id="buyerState">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="buyerCity">Ciudad/Municipio:</label>
+                                        <input name="buyerCity" type="text" id="buyerCity">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="buyerDocumentType">Tipo Documento:</label>
+                                        <input name="buyerDocumentType" type="text" id="buyerDocumentType">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="buyerDocument">Número de Documento:</label>
+                                        <input name="buyerDocument" type="text" id="buyerDocument">
+                                    </div>
 
-                                <div class="form-group">
-                                    <label for="mobilePhone">Número de Celular:</label>
-                                    <input name="mobilePhone" type="text" id="mobilePhone">
-                                </div>
+                                    <div class="form-group">
+                                        <label for="mobilePhone">Número de Celular:</label>
+                                        <input name="mobilePhone" type="text" id="mobilePhone">
+                                    </div>
 
-                                <div class="form-group">
-                                    <label for="officeTelephone">Teléfono diurno:</label>
-                                    <input name="officeTelephone" type="text" id="officeTelephone">
-                                </div>
+                                    <div class="form-group">
+                                        <label for="officeTelephone">Teléfono diurno:</label>
+                                        <input name="officeTelephone" type="text" id="officeTelephone">
+                                    </div>
 
-                            </fieldset>
-                        </section>
-                    </li>
+                                </fieldset>
+                            </section>
+                        </li>
 
-                    <li>
-                        <input type="checkbox" checked>
-                        <header>
-                            <h2>
-                                <i class="list-item">4</i>
-                                DATOS DE PAGADOR: (OPCIONAL)
-                            </h2>
-                        </header>
-                        <section>
-                            <fieldset class="form_contraentrega">
-
-                                <legend>
+                        <li class="form_contraentrega">
+                            <input type="checkbox" checked>
+                            <header>
+                                <h2>
+                                    <i class="list-item">4</i>
                                     DATOS DE PAGADOR: (OPCIONAL)
-                                </legend>
+                                </h2>
+                            </header>
+                            <section>
+                                <fieldset>
 
-                                <div class="form-group">
-                                    <label for="payerEmail">Correo Electrónico:</label>
-                                    <input name="payerEmail" type="text" id="payerEmail">
-                                </div>
+                                    <legend>
+                                        DATOS DE PAGADOR: (OPCIONAL)
+                                    </legend>
 
-                                <div class="form-group">
-                                    <label for="payerCountry">País Residencia:</label>
-                                    <input name="payerCountry" type="text" id="payerCountry">
-                                </div>
+                                    <div class="form-group">
+                                        <label for="payerEmail">Correo Electrónico:</label>
+                                        <input name="payerEmail" type="text" id="payerEmail">
+                                    </div>
 
-                                <div class="form-group">
-                                    <label for="payerState">Departamento/Región:</label>
-                                    <input name="payerState" type="text" id="payerState">
-                                </div>
+                                    <div class="form-group">
+                                        <label for="payerCountry">País Residencia:</label>
+                                        <input name="payerCountry" type="text" id="payerCountry">
+                                    </div>
 
-                                <div class="form-group">
-                                    <label for="payerCity">Ciudad/Municipio:</label>
-                                    <input name="payerCity" type="text" id="payerCity">
-                                </div>
+                                    <div class="form-group">
+                                        <label for="payerState">Departamento/Región:</label>
+                                        <input name="payerState" type="text" id="payerState">
+                                    </div>
 
-                                <div class="form-group">
-                                    <label for="payerDocumentType">Tipo Documento:</label>
-                                    <input name="payerDocumentType" type="text" id="payerDocumentType">
-                                </div>
+                                    <div class="form-group">
+                                        <label for="payerCity">Ciudad/Municipio:</label>
+                                        <input name="payerCity" type="text" id="payerCity">
+                                    </div>
 
-                                <div class="form-group">
-                                    <label for="payerFullName">Nombre Completo:</label>
-                                    <input name="payerFullName" type="text" id="payerFullName">
-                                </div>
+                                    <div class="form-group">
+                                        <label for="payerDocumentType">Tipo Documento:</label>
+                                        <input name="payerDocumentType" type="text" id="payerDocumentType">
+                                    </div>
 
-                                <div class="form-group">
-                                    <label for="payerDocument">Número de Identificación:</label>
-                                    <input name="payerDocument" type="text" id="payerDocument">
-                                </div>
+                                    <div class="form-group">
+                                        <label for="payerFullName">Nombre Completo:</label>
+                                        <input name="payerFullName" type="text" id="payerFullName">
+                                    </div>
 
-                                <div class="form-group">
-                                    <label for="payerMobilePhone">Número de Celular:</label>
-                                    <input name="payerMobilePhone" type="text" id="payerMobilePhone">
-                                </div>
+                                    <div class="form-group">
+                                        <label for="payerDocument">Número de Identificación:</label>
+                                        <input name="payerDocument" type="text" id="payerDocument">
+                                    </div>
 
-                                <div class="form-group">
-                                    <label for="payerOfficePhone">Teléfono diurno:</label>
-                                    <input name="payerOfficePhone" type="text" id="payerOfficePhone">
-                                </div>
-                            </fieldset>
-                        </section>
-                    </li>
+                                    <div class="form-group">
+                                        <label for="payerMobilePhone">Número de Celular:</label>
+                                        <input name="payerMobilePhone" type="text" id="payerMobilePhone">
+                                    </div>
 
-                    <li>
-                        <input type="checkbox" checked>
-                        <header>
-                            <h2>
-                                <i class="list-item">5</i>
-                                DATOS DE COMERCIO REMITENTE:
-                            </h2>
-                        </header>
-                        <section>
-                            <fieldset class="form_contraentrega">
-                                <legend>
+                                    <div class="form-group">
+                                        <label for="payerOfficePhone">Teléfono diurno:</label>
+                                        <input name="payerOfficePhone" type="text" id="payerOfficePhone">
+                                    </div>
+                                </fieldset>
+                            </section>
+                        </li>
+
+                        <li class="form_contraentrega">
+                            <input type="checkbox" checked>
+                            <header>
+                                <h2>
+                                    <i class="list-item">5</i>
                                     DATOS DE COMERCIO REMITENTE:
-                                </legend>
+                                </h2>
+                            </header>
+                            <section>
+                                <fieldset>
+                                    <legend>
+                                        DATOS DE COMERCIO REMITENTE:
+                                    </legend>
 
-                                <div class="form-group">
-                                    <label for="warehouseId">ID Bodega:</label>
-                                    <input name="warehouseId" type="text" id="warehouseId">
-                                </div>
-                                <div class="form-group">
-                                    <label for="wareHouseCity">Ciudad Bodega:</label>
-                                    <input name="wareHouseCity" type="text" id="wareHouseCity">
-                                </div>
-                                <div class="form-group">
-                                    <label for="wareHouseAddress">Dirección Bodega:</label>
-                                    <input name="wareHouseAddress" type="text" id="wareHouseAddress">
-                                </div>
-                                <div class="form-group">
-                                    <label for="contactName">Nombre Contacto Bodega:</label>
-                                    <input name="contactName" type="text" id="contactName">
-                                </div>
-                                <div class="form-group">
-                                    <label for="wareHouseContactPhone">Teléfono de Contacto Bodega:</label>
-                                    <input name="wareHouseContactPhone" type="text" id="wareHouseContactPhone">
-                                </div>
-                                <div class="form-group">
-                                    <label for="wareHouseMobilePhone">Teléfono Movil de Contacto:</label>
-                                    <input name="wareHouseMobilePhone" type="text" id="wareHouseMobilePhone">
-                                </div>
-                                <div class="form-group">
-                                    <label for="wareHouseZipCode">Código Postal Bodega:</label>
-                                    <input name="wareHouseZipCode" type="text" id="wareHouseZipCode">
-                                </div>
+                                    <div class="form-group">
+                                        <label for="warehouseId">ID Bodega:</label>
+                                        <input name="warehouseId" type="text" id="warehouseId">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="wareHouseCity">Ciudad Bodega:</label>
+                                        <input name="wareHouseCity" type="text" id="wareHouseCity">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="wareHouseAddress">Dirección Bodega:</label>
+                                        <input name="wareHouseAddress" type="text" id="wareHouseAddress">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="contactName">Nombre Contacto Bodega:</label>
+                                        <input name="contactName" type="text" id="contactName">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="wareHouseContactPhone">Teléfono de Contacto Bodega:</label>
+                                        <input name="wareHouseContactPhone" type="text" id="wareHouseContactPhone">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="wareHouseMobilePhone">Teléfono Movil de Contacto:</label>
+                                        <input name="wareHouseMobilePhone" type="text" id="wareHouseMobilePhone">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="wareHouseZipCode">Código Postal Bodega:</label>
+                                        <input name="wareHouseZipCode" type="text" id="wareHouseZipCode">
+                                    </div>
 
-                                <div class="form-group">
-                                    <label for="kilogramWeight">* Peso en Kilogramos:</label>
-                                    <input name="kilogramWeight" type="text" id="kilogramWeight">
-                                </div>
-                                <div class="form-group">
-                                    <label for="weightByVolume">* Peso Volumétrico:</label>
-                                    <input name="weightByVolume" type="text" id="weightByVolume">
-                                </div>
-                                <div class="form-group">
-                                    <label for="shipmentPackageHeightDimension">Alto:</label>
-                                    <input name="shipmentPackageHeightDimension" type="text" id="shipmentPackageHeightDimension">
-                                </div>
-                                <div class="form-group">
-                                    <label for="shipmentPackageLengthDimension">Largo:</label>
-                                    <input name="shipmentPackageLengthDimension" type="text" id="shipmentPackageLengthDimension">
-                                </div>
-                                <div class="form-group">
-                                    <label for="shipmentPackageWidthDimension">Ancho:</label>
-                                    <input name="shipmentPackageWidthDimension" type="text" id="shipmentPackageWidthDimension">
-                                </div>
-                                <div class="form-group">
-                                    <label for="declaredValue">Valor Declarado:</label>
-                                    <input name="declaredValue" type="text" id="declaredValue">
-                                </div>
-                                <div class="form-group">
-                                    <label for="shippingValue">Valor Envío:</label>
-                                    <input name="shippingValue" type="text" id="shippingValue">
-                                </div>
-                                <div class="form-group">
-                                    <label for="payerShippingPostalCode">Código Postal envío:</label>
-                                    <input name="payerShippingPostalCode" type="text" id="payerShippingPostalCode">
-                                </div>
-                                <div class="form-group">
-                                    <label for="observationsReceivingShipment">Observaciones de Envío:</label>
-                                    <input name="observationsReceivingShipment" type="text" id="observationsReceivingShipment">
-                                </div>            
-                                <div class="form-group">
-                                    <label for="aplicaCourier">Aplica Courier:</label>
-                                    <input name="isCourierApply" type="checkbox" id="aplicaCourier" value="1">
-                                </div>
-                            </fieldset>
-                        </section>
-                    </li>
-                </ul>
-                <button>
-                    Enviar
-                </button>
-            </form>
-            <aside>
+                                    <div class="form-group">
+                                        <label for="kilogramWeight">* Peso en Kilogramos:</label>
+                                        <input name="kilogramWeight" type="text" id="kilogramWeight">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="weightByVolume">* Peso Volumétrico:</label>
+                                        <input name="weightByVolume" type="text" id="weightByVolume">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="shipmentPackageHeightDimension">Alto:</label>
+                                        <input name="shipmentPackageHeightDimension" type="text" id="shipmentPackageHeightDimension">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="shipmentPackageLengthDimension">Largo:</label>
+                                        <input name="shipmentPackageLengthDimension" type="text" id="shipmentPackageLengthDimension">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="shipmentPackageWidthDimension">Ancho:</label>
+                                        <input name="shipmentPackageWidthDimension" type="text" id="shipmentPackageWidthDimension">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="declaredValue">Valor Declarado:</label>
+                                        <input name="declaredValue" type="text" id="declaredValue">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="shippingValue">Valor Envío:</label>
+                                        <input name="shippingValue" type="text" id="shippingValue">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="payerShippingPostalCode">Código Postal envío:</label>
+                                        <input name="payerShippingPostalCode" type="text" id="payerShippingPostalCode">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="observationsReceivingShipment">Observaciones de Envío:</label>
+                                        <input name="observationsReceivingShipment" type="text" id="observationsReceivingShipment">
+                                    </div>            
+                                    <div class="form-group">
+                                        <label for="aplicaCourier">Aplica Courier:</label>
+                                        <input name="isCourierApply" type="checkbox" id="aplicaCourier" value="1">
+                                    </div>
+                                </fieldset>
+                            </section>
+                        </li>
+                    </ul>
+                    <button>
+                        Enviar
+                    </button>
+                </form>
+            </section>
+            <aside class="side-bar">
                 <header>
                     <h2>
                         Opciones
                     </h2>
                 </header>
                 <section>
-                    <form class="form">
+                    <div class="form options">
                         <fieldset>
                             <div class="form-group">
                                 <label for="pruebaAs">Pruebas:</label>
                                 <input name="test" type="checkbox" id="pruebaAs" value="1">
                             </div>
                         </fieldset>
-                    </form>
+                        <fieldset>
+                            <div class="form-group">
+                                <button class="small save">
+                                    Guardar formulario
+                                </button>
+                                <!--<button class="small warning">
+                                    Limpiar campos
+                                </button>-->
+                            </div>
+                        </fieldset>
+                    </div>
                 </section>
+                <div class="accordion user-saved">
+                    <ul>
+                        <li>
+                            <input type="checkbox">
+                            <i class="expand"></i>
+                            <h1>
+                                Formularios
+                            </h1>
+                            <section class="forms">
+                                <div class="form-saved">
+                                    <header>
+                                        <h2>
+                                            N/A
+                                        </h2>
+                                    </header>
+                                    <section>
+                                        <details>
+                                            <summary>Contenido</summary>
+                                            <p></p>
+                                        </details>
+                                        <nav>
+                                            <button class="small watch"><i class="fa fa-pencil"></i></button>
+                                            <button class="small danger"><i class="fa fa-ban"></i></button>
+                                        </nav>
+                                    </section>
+                                </div>
+                            </section>
+                        </li>
+                    </ul>
+                </div>
             </aside>
             <!-- -->
         </main>
 
         <script src="assets/js/analytics.js" type="text/javascript"></script>
         <script src="assets/js/jquery.min.js" type="text/javascript"></script>
+        <script src="assets/js/persist-min.js" type="text/javascript"></script>
         <script src="assets/js/main.js" type="text/javascript"></script>
-
-        <script>
-                                        (function (i, s, o, g, r, a, m) {
-                                            i['GoogleAnalyticsObject'] = r;
-                                            i[r] = i[r] || function () {
-                                                (i[r].q = i[r].q || []).push(arguments)
-                                            }, i[r].l = 1 * new Date();
-                                            a = s.createElement(o),
-                                                    m = s.getElementsByTagName(o)[0];
-                                            a.async = 1;
-                                            a.src = g;
-                                            m.parentNode.insertBefore(a, m)
-                                        })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
-                                        ga('create', 'UA-55528054-1', 'auto');
-        </script>
     </body>
 </html>

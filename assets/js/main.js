@@ -4,6 +4,110 @@
  * and open the template in the editor.
  */
 
+/* global Persist */
+
+//<editor-fold defaultstate="collapsed" desc="Utils">
+$.fn.serializeObject = function ()
+{
+    var o = {};
+    var a = this.serializeArray();
+    $.each(a, function () {
+        if (o[this.name] !== undefined) {
+            if (!o[this.name].push) {
+                o[this.name] = [o[this.name]];
+            }
+            o[this.name].push(this.value || '');
+        } else {
+            o[this.name] = this.value || '';
+        }
+    });
+    return o;
+};
+
+$.fn.prependClass = function (strClass) {
+    var $el = this;
+
+    /* prepend class */
+    var classes = $el.attr('class');
+    if (typeof classes === "undefined") {
+        classes = "";
+    }
+    classes = strClass + ' ' + classes;
+    $el.attr('class', classes);
+
+    return this;
+};
+
+JSON.stringify = JSON.stringify || function (obj) {
+    var t = typeof (obj);
+    if (t != "object" || obj === null) {
+        // simple data type
+        if (t == "string")
+            obj = '"' + obj + '"';
+        return String(obj);
+    } else {
+        // recurse array or object
+        var n, v, json = [], arr = (obj && obj.constructor == Array);
+        for (n in obj) {
+            v = obj[n];
+            t = typeof (v);
+            if (t == "string")
+                v = '"' + v + '"';
+            else if (t == "object" && v !== null)
+                v = JSON.stringify(v);
+            json.push((arr ? "" : '"' + n + '":') + String(v));
+        }
+        return (arr ? "[" : "{") + String(json) + (arr ? "]" : "}");
+    }
+};
+
+function action_form(element, v3) {
+    var correcto = true;
+    var entro = false;
+    var str_compare = $(element).prop('type');
+    do {
+        var sigue = false;
+        //console.log(str_compare);
+        switch (str_compare) {
+            case 'checkbox':
+                $(element + "[value='" + v3 + "']").attr('checked', true).change();
+                break;
+            case 'radio':
+                $(element + "[value='" + v3 + "']").attr('checked', true).change();
+                break;
+            case 'textarea':
+            case 'select-one':
+            case 'hidden':
+            case 'text':
+                $(element).val(v3);
+                break;
+            case 'undefined':
+
+            default :
+                if (!entro) {
+                    element = element.slice(0, element.length - 2) + "[]']";
+                    if ($(element).exists()) {
+                        str_compare = $(element)[0].type;
+                        str_compare = str_compare.trim();
+                        sigue = true;
+
+                    }
+                    entro = true;
+                } else {
+                    //console.warn($(element));
+                    correcto = false;
+                }
+
+                break;
+        }
+    } while (sigue);
+    return correcto;
+    //console.log($(element).prop('type'));
+}
+
+//</editor-fold>
+
+//<editor-fold defaultstate="collapsed" desc="Old Functions">
 
 var hexcase = 0;
 var b64pad = "";
@@ -353,16 +457,32 @@ function generarFirma() {
         document.form1.firma.value = hex_md5(utf8Encode(cadenaAFirmar));
     }
 }
+//</editor-fold>
 
-
+//<editor-fold defaultstate="collapsed" desc="UI - UX Functions">
 $(document).ready(function () {
     $("form").on("change", "#aplicaPagoContraEntrega", function () {
         toggle(this, ".form_contraentrega");
     });
     toggle(this, ".form_contraentrega");
-    
 
+    $(".form").on("change", "[name=test]", function () {
+        toogle_tamplate(this);
+    });
+    toogle_tamplate(this);
 });
+
+function toogle_tamplate(chkbox) {
+    if (chkbox.checked) {
+        $("body").prependClass("orange");
+    } else {
+        $("body").removeClass("orange");
+    }
+
+    $("[name=test]")
+            .attr("checked", chkbox.checked)
+            .prop('checked', chkbox.checked);
+}
 
 function toggle(chkbox, group) {
     $(group).removeClass("inactive active");
@@ -373,3 +493,142 @@ function toggle(chkbox, group) {
         $(group).addClass("inactive");
     }
 }
+//</editor-fold>
+
+//<editor-fold defaultstate="collapsed" desc="Analytics">
+(
+        function (i, s, o, g, r, a, m) {
+            i['GoogleAnalyticsObject'] = r;
+            i[r] = i[r] || function () {
+                (i[r].q = i[r].q || []).push(arguments)
+            }, i[r].l = 1 * new Date();
+            a = s.createElement(o),
+                    m = s.getElementsByTagName(o)[0];
+            a.async = 1;
+            a.src = g;
+            m.parentNode.insertBefore(a, m)
+        })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+ga('create', 'UA-55528054-1', 'auto');
+//</editor-fold>
+
+//<editor-fold defaultstate="collapsed" desc="Form controls">
+
+
+$(function () {
+    // load persistent store after the DOM has loaded
+    configs = [];
+    KEYSTORE = "configs";
+    dataForm = null;
+    store = new Persist.Store(KEYSTORE, {
+        domain: 'localstorage'
+    });
+    initConfigs();
+    paintConfigs();
+
+    $(".forms").on("click", "button.danger", function () {
+        var that = $(this);
+        var index = that.parents("[form-id]").eq(0).attr("form-id");
+        deleteConfig(index);
+    });
+
+    $(".options").on("click", ".save", function () {
+        saveConfig("[name=form1]");
+        paintConfigs();
+    });
+
+    $(".forms").on("click", "button.watch", function () {
+        var that = $(this);
+        var index = that.parents("[form-id]").eq(0).attr("form-id");
+        watchConfig(index);
+    });
+
+});
+
+//<editor-fold defaultstate="collapsed" desc="CRUD Configs">
+var initConfigs = function () {
+    var val = store.get(KEYSTORE);
+    configs = JSON.parse(val);
+    configs = configs ? configs : [];
+
+    $.each(configs, function (k, test) {
+        for (var i in test) {
+            if (test[i] === null || test[i] === undefined || !test[i]) {
+                // test[i] === undefined is probably not very useful here
+                delete test[i];
+            }
+        }
+    });
+
+    saveLocal(configs);
+    console.warn(configs, "ESTOS SON LOS FORMULARIOS GUARDADOS");
+};
+
+var paintConfigs = function () {
+    var dad = $(".forms");
+    if (!dataForm) {
+        dataForm = dad.children().eq(0).clone(true);
+    }
+    dad.empty();
+
+    //console.log(data, dad);
+
+    $.each(configs, function (k, v) {
+        //dad.insertAfter("div.car_well:last").append(data);
+        //data.clone().app
+        dataForm.attr("form-id", k);
+        $("header h2", dataForm).text(v.title);
+        $("details p", dataForm).text(JSON.stringify(v, null, 2));
+
+        dad.append(dataForm.clone());
+    });
+
+    saveLocal(configs);
+};
+
+var deleteConfig = function (index) {
+    if (index > -1) {
+        configs.splice(index, 1);
+    }
+    paintConfigs();
+};
+
+var saveConfig = function (selector) {
+    var test = $(selector).serializeObject();
+
+    for (var i in test) {
+        if (test[i] === null || test[i] === undefined || !test[i]) {
+            // test[i] === undefined is probably not very useful here
+            delete test[i];
+        }
+    }
+
+    configs.push(test);
+    //$.removeCookie(KEYSTORE);
+    saveLocal(configs);
+};
+
+var saveLocal = function (configs) {
+    var lots_of_data = JSON.stringify(configs); // value with lots of data
+
+    try {
+        // check size of data
+        if (Persist.size !== -1 && Persist.size < lots_of_data.length)
+            throw new Error('too much data');
+        // try and save data
+        store.set(KEYSTORE, lots_of_data);
+    } catch (err) {
+        // display save error
+        alert("Couldn't save data: " + err);
+    }
+};
+
+var watchConfig = function (index) {
+    var selector = "[name=form1]";
+    $.each(configs[index], function (k, v) {
+        action_form(selector + " " + "[name=" + k + "]", v);
+    });
+};
+
+//</editor-fold>
+
+//</editor-fold>

@@ -18,10 +18,19 @@ h1 , h2 {
 }
 
 h1 {
-    font-size: 36px;
+    font-size: 2rem;
     line-height: 42px;
     letter-spacing: 3px;
     font-weight: 100;
+    border:{
+        bottom: 1px;
+        style: solid;
+    }
+    padding: $interlineado;
+    margin: {
+        left: $interlineado;
+        right: $interlineado;
+    }
     //@extend .flipIn;
 }
 
@@ -32,7 +41,6 @@ h2 {
     letter-spacing: 1px;
     display: block;
     margin: 0;
-    cursor: pointer;
 
     //@extend .no-select;
 }
@@ -43,21 +51,31 @@ label{
     color: $font-color-title;
     font-weight: bold;
 }
-
+a{
+    cursor: pointer;
+}
 
 
 /********** FORM CONTROLS **************/
 
 .button, button{
     outline: none;
-    background-color: $font-color-link;
+    
     border: 0px;
     @include border-radius(20px);
-    color: $font-color-inverse;
+    color: $inverse-black;
     font-size: $font-size-title;
     padding: 20px 40px;
     font-weight: bold;
     cursor: pointer;
+    margin: {
+        top: $interlineado + $interlineado;
+    }
+    
+    &.small{
+        padding: 10px 5px;
+        font-size: inherit;
+    }
 }
 
 [type="checkbox"]{
@@ -69,13 +87,12 @@ label{
 
 input[type=text], input[type=number], textarea, select {
     outline: none;
-    border: 1px solid $outline-color-focus;
+    border: 1px solid $opaque-black;
     @include border-radius($border-radius);
-    border: 2px solid $border-color;
     padding: $padding-default;
     margin: $interlineado 0px;
-    display: block;
-    width: 100%;    
+    display: inline-block;
+    width: available;
 }
 
 input[type=text]:focus,input[type=number]:focus, button:focus, textarea:focus {
@@ -83,9 +100,7 @@ input[type=text]:focus,input[type=number]:focus, button:focus, textarea:focus {
     -moz-transition: all 0.30s ease-in-out;
     -ms-transition: all 0.30s ease-in-out;
     -o-transition: all 0.30s ease-in-out;
-    box-shadow: 0 0 5px $outline-color-focus;
-    border: 1px solid $outline-color-focus;
-}
-a{
-    cursor: pointer;
+    
+    box-shadow: 0 0 5px $opaque-black;
+    border: 1px solid $opaque-black;
 }

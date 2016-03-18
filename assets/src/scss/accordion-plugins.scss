@@ -48,7 +48,7 @@
             border: 1px solid #ccc;
             */
             
-            @extend .flipIn;
+            //@extend .flipIn;
             &:nth-of-type(1) {
                 animation-delay: 0.5s;
             }
@@ -61,9 +61,9 @@
             &:last-of-type {
                 padding-bottom: 0;
             }
-            >i {
-                //position: absolute;
-                transform: translate(-6px, 0);
+            i.expand {
+                position: absolute;
+                transform: translate(-20px, 7px);
                 margin-top: 16px;
                 right: 0;
                 &:before , &:after {
@@ -95,7 +95,7 @@
                         opacity: 0;
                         transform: translate(0, 50%);
                     }
-                    &~i {
+                    &~i.expand {
                         &:before {
                             transform: translate(2px, 0) rotate(45deg);
                         }

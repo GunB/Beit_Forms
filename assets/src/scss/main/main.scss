@@ -4,13 +4,18 @@
 @import "compass/layout";
 
 @import "compass/layout/grid-background";
-
 @import "../base-config.scss";
-@import "../html-basics.scss";
-@import "../section-form.scss";
 
 /************ plugins ******************/
 @import "../accordion-plugins.scss";
 
+/************ develop ******************/
+
+@import "../html-basics.scss";
+@import "../section-form.scss";
+
+/************ config ******************/
+
 @import "../ng-settings.scss";
 @import "../special-mediaquery.scss";
+@import "../special-template-color.scss";
