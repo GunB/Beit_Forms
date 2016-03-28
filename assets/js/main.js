@@ -7,7 +7,7 @@
 /* global Persist */
 
 //<editor-fold defaultstate="collapsed" desc="Utils">
-$.fn.serializeObject = function ()
+$.fn.serializeObject = function (boolClean)
 {
     var o = {};
     var a = this.serializeArray();
@@ -21,6 +21,16 @@ $.fn.serializeObject = function ()
             o[this.name] = this.value || '';
         }
     });
+
+    if (boolClean) {
+        for (var i in o) {
+            if (o[i] === null || o[i] === undefined || !o[i]) {
+                // test[i] === undefined is probably not very useful here
+                delete o[i];
+            }
+        }
+    }
+
     return o;
 };
 
@@ -459,10 +469,12 @@ function generarFirma() {
     }
 }
 
-function referenceCode(){
-    if(document.form1.referenceCode.value === ""){
-        var ts = Math.round((new Date()).getTime() / 1000);
-        document.form1.referenceCode.value = ts;
+function referenceCode() {
+    if (document.form1.referenceCode.value === "") {
+        var date = new Date();
+        var time = date.toLocaleTimeString();
+        time = (date.getMonth() + 1) + '/' + date.getDate() + '/' + date.getFullYear() + " " + time;
+        document.form1.referenceCode.value = time;
     }
 }
 
@@ -503,22 +515,27 @@ function toggle(chkbox, group) {
         $(group).addClass("inactive");
     }
 }
-//</editor-fold>
 
-//<editor-fold defaultstate="collapsed" desc="Analytics">
-(
-        function (i, s, o, g, r, a, m) {
-            i['GoogleAnalyticsObject'] = r;
-            i[r] = i[r] || function () {
-                (i[r].q = i[r].q || []).push(arguments)
-            }, i[r].l = 1 * new Date();
-            a = s.createElement(o),
-                    m = s.getElementsByTagName(o)[0];
-            a.async = 1;
-            a.src = g;
-            m.parentNode.insertBefore(a, m)
-        })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
-ga('create', 'UA-55528054-1', 'auto');
+var createDialog = function (dialog_name, jButton) {
+    var dialog = document.querySelector(dialog_name);
+    var showModalButton = jButton;
+    if (!dialog.showModal) {
+        dialogPolyfill.registerDialog(dialog);
+    }
+    showModalButton.addEventListener('click', function () {
+        if ($(dialog).attr("reset-form")) {
+            dialog.querySelector('form').reset();
+        }
+        dialog.showModal();
+    });
+
+    $(".button, .mdl-button", dialog).not(".save").each(function () {
+        this.addEventListener('click', function () {
+            //console.log(dialog);
+            dialog.close();
+        });
+    });
+};
 //</editor-fold>
 
 //<editor-fold defaultstate="collapsed" desc="Form controls">
@@ -541,33 +558,52 @@ $(function () {
         deleteConfig(index);
     });
 
-    $(".forms").on("click", "button.watch", function () {
+    $(".forms").on("click", ".watch", function () {
         var that = $(this);
         var index = that.parents("[form-id]").eq(0).attr("form-id");
         watchConfig(index);
     });
 
-});
+    $("[title=dialog-title]").on("click", ".save", function () {
+        var that = $(this);
 
-(function () {
-    var dialog = document.querySelector('dialog');
-    var showModalButton = document.querySelector('.show-modal');
-    if (!dialog.showModal) {
-        dialogPolyfill.registerDialog(dialog);
-    }
-    showModalButton.addEventListener('click', function () {
-        dialog.querySelector('form').reset();
-        dialog.showModal();
-    });
-    dialog.querySelector('.close').addEventListener('click', function () {
-        dialog.close();
-    });
-    dialog.querySelector('.save').addEventListener('click', function () {
-        saveConfig("[name=form1]");
+        var dialog = $(this).parents("dialog").eq(0);
+
+        var baseFormExtra = $("form", dialog);
+        var objExtra = baseFormExtra.serializeObject(true);
+
+        //console.log(objExtra, baseFormExtra);
+        saveConfig("[name=form1]", objExtra);
+
+        dialog[0].close();
+
         paintConfigs();
-        dialog.close();
     });
-}());
+
+    $("[title=dialog-options]").on("click", ".save", function () {
+        var dialog = $(this).parents("dialog").eq(0);
+        var element = $("form", dialog)[0].json;
+        
+        if (rawSaveConfig(element)) {
+            dialog[0].close();
+            paintConfigs();
+        } else {
+            var data = {message: 'JSON not Valid'};
+            var snackbarContainer = document.querySelector('#demo-toast-example');
+            snackbarContainer.MaterialSnackbar.showSnackbar(data);
+        }
+    });
+
+    $("[show-modal=options]").click(function () {
+        showConfig();
+    });
+
+    $("[show-modal]").each(function () {
+        createDialog("[title=dialog-" + $(this).attr("show-modal") + "]", this);
+
+    });
+
+});
 
 //<editor-fold defaultstate="collapsed" desc="CRUD Configs">
 var initConfigs = function () {
@@ -610,6 +646,12 @@ var paintConfigs = function () {
     saveLocal(configs);
 };
 
+var showConfig = function () {
+    var texto = $("[title=dialog-options] textarea");
+    //console.log(texto);
+    texto.val(JSON.stringify(configs));
+};
+
 var deleteConfig = function (index) {
     if (index > -1) {
         configs.splice(index, 1);
@@ -617,19 +659,37 @@ var deleteConfig = function (index) {
     paintConfigs();
 };
 
-var saveConfig = function (selector) {
-    var test = $(selector).serializeObject();
+var saveConfig = function (selector, objExtra) {
+    var test = $(selector).serializeObject(true);
 
-    for (var i in test) {
-        if (test[i] === null || test[i] === undefined || !test[i]) {
-            // test[i] === undefined is probably not very useful here
-            delete test[i];
-        }
-    }
+    $.extend(test, objExtra);
 
     configs.push(test);
     //$.removeCookie(KEYSTORE);
     saveLocal(configs);
+};
+
+var rawSaveConfig = function (selector) {
+    
+    var text = $(selector).val();
+
+    if (/^[\],:{}\s]*$/.test(text.replace(/\\["\\\/bfnrtu]/g, '@').
+            replace(/"[^"\\\n\r]*"|true|false|null|-?\d+(?:\.\d*)?(?:[eE][+\-]?\d+)?/g, ']').
+            replace(/(?:^|:|,)(?:\s*\[)+/g, ''))) {
+        
+        var config = JSON.parse(text);
+        configs = config;
+        saveLocal(config);
+        return true;
+
+    } else {
+
+
+        return false;
+
+    }
+    //$.removeCookie(KEYSTORE);
+
 };
 
 var saveLocal = function (configs) {
@@ -655,11 +715,27 @@ var watchConfig = function (index) {
     $.each(configs[index], function (k, v) {
         action_form(selector + " " + "[name=" + k + "]", v);
     });
-    
-    toogle_tamplate($("[name=test]",selector)[0]);
+
+    toogle_tamplate($("[name=test]", selector)[0]);
     toggle($("#aplicaPagoContraEntrega")[0], ".form_contraentrega");
 };
 
 //</editor-fold>
 
+//</editor-fold>
+
+//<editor-fold defaultstate="collapsed" desc="Analytics">
+(
+        function (i, s, o, g, r, a, m) {
+            i['GoogleAnalyticsObject'] = r;
+            i[r] = i[r] || function () {
+                (i[r].q = i[r].q || []).push(arguments)
+            }, i[r].l = 1 * new Date();
+            a = s.createElement(o),
+                    m = s.getElementsByTagName(o)[0];
+            a.async = 1;
+            a.src = g;
+            m.parentNode.insertBefore(a, m)
+        })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+ga('create', 'UA-55528054-1', 'auto');
 //</editor-fold>

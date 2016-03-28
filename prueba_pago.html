@@ -9,8 +9,9 @@
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width">
         <link href="vendor/material-design-lite/material.min.css" rel="stylesheet" type="text/css"/>
-        <link rel="stylesheet" href="//code.getmdl.io/1.1.3/material.teal-green.min.css" />
+        <link href="vendor/material-design-lite/material.teal-green.min.css" rel="stylesheet" type="text/css"/>
         <link href="vendor/iconfont/material-icons.css" rel="stylesheet" type="text/css"/>
+        <link href="vendor/dialog-polyfill-0.4.3/dialog-polyfill.css" rel="stylesheet" type="text/css"/>
         <link href="css/main.css" rel="stylesheet" type="text/css"/>
     </head>
 
@@ -23,22 +24,31 @@
                 </div>
             </header>
             <div class="mdl-layout__drawer">
-                <span class="mdl-layout-title">Opciones</span>
+                <span class="mdl-layout-title">
+
+                    Opciones
+
+                </span>
+
                 <nav class="mdl-navigation">
 
-                    <div class="form options mdl-navigation__link">
+                    <form class="form options mdl-navigation__link">
 
                         <div class="form-group">
                             <label for="pruebaAs">Pruebas:</label>
                             <input name="test" type="checkbox" id="pruebaAs" value="1">
                         </div>
 
-
-                    </div>
+                    </form>
 
                 </nav>
 
-                <span class="mdl-layout-title">Formularios</span>
+                <span class="mdl-layout-title">
+                    <span>Formularios </span>
+                    <button class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab" show-modal="options">
+                        <i class="material-icons">edit</i>
+                    </button>
+                </span>
 
                 <nav class="mdl-navigation">
                     <div class="user-saved">
@@ -55,8 +65,12 @@
                                         <p></p>
                                     </details>
                                     <nav>
-                                        <button class="button small watch"><i class="material-icons">visibility</i></button>
-                                        <button class="button small danger"><i class="material-icons">delete</i></button>
+                                        <button class="mdl-button mdl-js-button mdl-button--fab watch next">
+                                            <i class="material-icons">visibility</i>
+                                        </button>
+                                        <button class="mdl-button mdl-js-button mdl-button--fab danger">
+                                            <i class="material-icons">delete</i>
+                                        </button>
                                     </nav>
                                 </section>
                             </div>
@@ -77,8 +91,26 @@
                                 <i class="expand"></i>
                                 <header>
                                     <h2>
+                                        <i class="list-item">.</i>
+                                        Configuraciones iniciales
+                                    </h2>
+                                </header>
+                                <section>
+                                    <fieldset>
+                                        <div class="form-group">
+                                            <label for="prueba">Pruebas:</label>
+                                            <input name="test" type="checkbox" id="prueba" value="1">
+                                        </div>
+                                    </fieldset>
+                                </section>
+                            </li>
+                            <li>
+                                <input type="checkbox">
+                                <i class="expand"></i>
+                                <header>
+                                    <h2>
                                         <i class="list-item">1</i>
-                                        Ingrese los datos para realizar el pago
+                                        Datos realizar el pago
                                     </h2>
                                 </header>
                                 <section>
@@ -120,21 +152,6 @@
                                         </div>
 
                                         <div class="form-group">
-                                            <label for="taxReturnBase">Base devolución IVA:</label>
-                                            <input name="taxReturnBase" type="text" id="taxReturnBase">
-                                        </div>
-
-                                        <div class="form-group">
-                                            <label for="additionalValue">Valor adicional:</label>
-                                            <input name="additionalValue" type="text" id="additionalValue">
-                                        </div>
-
-                                        <div class="form-group">
-                                            <label for="discount">Descuento:</label>
-                                            <input name="discount" type="text" id="discount">
-                                        </div>
-
-                                        <div class="form-group">
                                             <label for="currency">Moneda:</label>
                                             <select name="currency" id="currency">
                                                 <option value="USD">USD</option>
@@ -158,10 +175,7 @@
                                             </select>
                                         </div>
 
-                                        <div class="form-group">
-                                            <label for="expirationDate">Fecha Expiración:</label>
-                                            <input name="expirationDate" type="text" id="expirationDate">
-                                        </div>
+
 
                                         <div class="form-group">
                                             <label for="buyerFullName">Nombre:</label>
@@ -174,18 +188,8 @@
                                         </div>
 
                                         <div class="form-group">
-                                            <label for="billingCity">Ciudad de facturación:</label>
-                                            <input name="billingCity" type="text" id="billingCity">
-                                        </div>
-
-                                        <div class="form-group">
                                             <label for="billingAddress">Dirrección de facturación:</label>
                                             <input name="billingAddress" type="text" id="billingAddress">
-                                        </div>
-
-                                        <div class="form-group">
-                                            <label for="billingCountry">País de facturación:</label>
-                                            <input name="billingCountry" type="text" id="billingCountry">
                                         </div>
 
                                         <div class="form-group">
@@ -199,93 +203,138 @@
 
                                         <div class="form-group">
                                             <label for="firma">Firma digital:</label>
-                                            <input name="signature" type="text" id="firma">
-                                            <a href="#" onclick="generarFirma()" class="button small help">(generar)</a>
+                                            <div>
+                                                <input name="signature" type="text" id="firma">
+                                                <a href="#" onclick="generarFirma()" class="button small help"><i class="material-icons">sync</i></a>
+                                            </div>
                                         </div>
 
-                                        <div class="form-group">
-                                            <label for="url_confirmacion">Url de confirmación:</label>
-                                            <input name="confirmationUrl" type="text" id="url_confirmacion">
-                                        </div>
 
-                                        <div class="form-group">
-                                            <label for="url_respuesta">Url de respuesta:</label>
-                                            <input name="responseUrl" type="text" id="url_respuesta">
-                                        </div>
 
-                                        <div class="form-group">
-                                            <label for="urlAprobada">Url de respuesta aprobada:</label>
-                                            <input name="approvedResponseUrl" type="text" id="urlAprobada">
-                                        </div>
+                                        <ul class="accordion not-frecuent">
+                                            <li>
+                                                <input type="checkbox" checked>
+                                                <i class="expand"></i>
+                                                <header>
+                                                    <h2>
+                                                        Campos no frecuentes
+                                                    </h2>
+                                                </header>
+                                                <section>
 
-                                        <div class="form-group">
-                                            <label for="urlEnValidacion">Url de respuesta pendiente:</label>
-                                            <input name="pendingResponseUrl" type="text" id="urlEnValidacion">
-                                        </div>
+                                                    <div class="form-group">
+                                                        <label for="expirationDate">Fecha Expiración:</label>
+                                                        <input name="expirationDate" type="text" id="expirationDate">
+                                                    </div>
 
-                                        <div class="form-group">
-                                            <label for="urlRechazada">Url de respuesta rechazada:</label>
-                                            <input name="declinedResponseUrl" type="text" id="urlRechazada">
-                                        </div>
+                                                    <div class="form-group">
+                                                        <label for="taxReturnBase">Base devolución IVA:</label>
+                                                        <input name="taxReturnBase" type="text" id="taxReturnBase">
+                                                    </div>
 
-                                        <div class="form-group">
-                                            <label for="sourceUrl">Url Origen (Botón de Pago):</label>
-                                            <input name="sourceUrl" type="text" id="sourceUrl">
-                                        </div>
+                                                    <div class="form-group">
+                                                        <label for="additionalValue">Valor adicional:</label>
+                                                        <input name="additionalValue" type="text" id="additionalValue">
+                                                    </div>
 
-                                        <div class="form-group">
-                                            <label for="partnerId">Partner Id:</label>
-                                            <input name="partnerId" type="text" id="partnerId">
-                                        </div>
+                                                    <div class="form-group">
+                                                        <label for="discount">Descuento:</label>
+                                                        <input name="discount" type="text" id="discount">
+                                                    </div>
 
-                                        <div class="form-group">
-                                            <label for="prueba">Pruebas:</label>
-                                            <input name="test" type="checkbox" id="prueba" value="1">
-                                        </div>
+                                                    <div class="form-group">
+                                                        <label for="billingCity">Ciudad de facturación:</label>
+                                                        <input name="billingCity" type="text" id="billingCity">
+                                                    </div>
 
-                                        <div class="form-group">
-                                            <label for="template">Plantilla:</label>
-                                            <input name="template" type="text" id="template">
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="airline">Código de la aerolínea:</label>
-                                            <input name="airline" type="text" id="airline">
-                                        </div>
+                                                    <div class="form-group">
+                                                        <label for="billingCountry">País de facturación:</label>
+                                                        <input name="billingCountry" type="text" id="billingCountry">
+                                                    </div>
 
-                                        <div class="form-group">
-                                            <label for="paymentMethods">Tipos de Medios de Pago:</label>
-                                            <input name="paymentMethods" type="text" id="paymentMethods">
-                                        </div>
+                                                    <div class="form-group">
+                                                        <label for="url_confirmacion">Url de confirmación:</label>
+                                                        <input name="confirmationUrl" type="text" id="url_confirmacion">
+                                                    </div>
 
-                                        <div class="form-group">
-                                            <label for="iin">Bines admitidos:</label>
-                                            <input name="iin" type="text" id="iin">
-                                        </div>
+                                                    <div class="form-group">
+                                                        <label for="url_respuesta">Url de respuesta:</label>
+                                                        <input name="responseUrl" type="text" id="url_respuesta">
+                                                    </div>
 
-                                        <div class="form-group">
-                                            <label for="selectedPaymentMethod">Preselección medio de pago:</label>
-                                            <input name="selectedPaymentMethod" type="text" id="selectedPaymentMethod">
-                                        </div>
+                                                    <div class="form-group">
+                                                        <label for="urlAprobada">Url de respuesta aprobada:</label>
+                                                        <input name="approvedResponseUrl" type="text" id="urlAprobada">
+                                                    </div>
 
-                                        <div class="form-group">
-                                            <label for="paymentMethodsDescription">Descripción Tipos de Medios de Pago:</label>
-                                            <input name="paymentMethodsDescription" type="text" id="paymentMethodsDescription">
-                                        </div>
+                                                    <div class="form-group">
+                                                        <label for="urlEnValidacion">Url de respuesta pendiente:</label>
+                                                        <input name="pendingResponseUrl" type="text" id="urlEnValidacion">
+                                                    </div>
 
-                                        <div class="form-group">
-                                            <label for="administrativeFee">Tarifa administrativa:</label>
-                                            <input name="administrativeFee" type="text" id="administrativeFee">
-                                        </div>
+                                                    <div class="form-group">
+                                                        <label for="urlRechazada">Url de respuesta rechazada:</label>
+                                                        <input name="declinedResponseUrl" type="text" id="urlRechazada">
+                                                    </div>
 
-                                        <div class="form-group">
-                                            <label for="taxAdministrativeFee">Iva de la tarifa administrativa:</label>
-                                            <input name="taxAdministrativeFee" type="text" id="taxAdministrativeFee">
-                                        </div>
+                                                    <div class="form-group">
+                                                        <label for="sourceUrl">Url Origen (Botón de Pago):</label>
+                                                        <input name="sourceUrl" type="text" id="sourceUrl">
+                                                    </div>
 
-                                        <div class="form-group">
-                                            <label for="taxAdministrativeFeeReturnBase">Base devolución IVA Tarifa Administrativa:</label>
-                                            <input name="taxAdministrativeFeeReturnBase" type="text" id="taxAdministrativeFeeReturnBase">
-                                        </div>
+                                                    <div class="form-group">
+                                                        <label for="partnerId">Partner Id:</label>
+                                                        <input name="partnerId" type="text" id="partnerId">
+                                                    </div>
+
+
+
+                                                    <div class="form-group">
+                                                        <label for="template">Plantilla:</label>
+                                                        <input name="template" type="text" id="template">
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="airline">Código de la aerolínea:</label>
+                                                        <input name="airline" type="text" id="airline">
+                                                    </div>
+
+                                                    <div class="form-group">
+                                                        <label for="paymentMethods">Tipos de Medios de Pago:</label>
+                                                        <input name="paymentMethods" type="text" id="paymentMethods">
+                                                    </div>
+
+                                                    <div class="form-group">
+                                                        <label for="iin">Bines admitidos:</label>
+                                                        <input name="iin" type="text" id="iin">
+                                                    </div>
+
+                                                    <div class="form-group">
+                                                        <label for="selectedPaymentMethod">Preselección medio de pago:</label>
+                                                        <input name="selectedPaymentMethod" type="text" id="selectedPaymentMethod">
+                                                    </div>
+
+                                                    <div class="form-group">
+                                                        <label for="paymentMethodsDescription">Descripción Tipos de Medios de Pago:</label>
+                                                        <input name="paymentMethodsDescription" type="text" id="paymentMethodsDescription">
+                                                    </div>
+
+                                                    <div class="form-group">
+                                                        <label for="administrativeFee">Tarifa administrativa:</label>
+                                                        <input name="administrativeFee" type="text" id="administrativeFee">
+                                                    </div>
+
+                                                    <div class="form-group">
+                                                        <label for="taxAdministrativeFee">Iva de la tarifa administrativa:</label>
+                                                        <input name="taxAdministrativeFee" type="text" id="taxAdministrativeFee">
+                                                    </div>
+
+                                                    <div class="form-group">
+                                                        <label for="taxAdministrativeFeeReturnBase">Base devolución IVA Tarifa Administrativa:</label>
+                                                        <input name="taxAdministrativeFeeReturnBase" type="text" id="taxAdministrativeFeeReturnBase">
+                                                    </div>
+                                                </section>
+                                            </li>
+                                        </ul>
 
                                     </fieldset>
                                 </section>
@@ -574,22 +623,7 @@
                                             </select> 
                                         </div>
 
-                                        <div class="form-group">
-                                            <label for="extra1">Extra 1:</label>
-                                            <input name="extra1" type="text" id="extra1">
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="extra2">Extra 2:</label>
-                                            <input name="extra2" type="text" id="extra2">
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="extra3">Extra 3:</label>
-                                            <input name="extra3" type="text" id="extra3">
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="extra4">Extra 4:</label>
-                                            <input name="extra4" type="text" id="extra4">
-                                        </div>
+
 
                                         <div class="form-group">
                                             <label for="solicitarComentariosPagador">Solicitar comentarios del pagador:</label>
@@ -608,6 +642,38 @@
                                             <label for="aplicaPagoContraEntrega">Pago contra entrega:</label>
                                             <input name="isCashOnDeliveryApply" type="checkbox" id="aplicaPagoContraEntrega" value="1">
                                         </div>
+
+
+                                        <div class="form-group">
+                                            <label for="extra1">Extra 1:</label>
+                                            <input name="extra1" type="text" id="extra1">
+                                        </div>
+                                        <ul class="accordion not-frecuent">
+                                            <li>
+                                                <input type="checkbox" checked>
+                                                <i class="expand"></i>
+                                                <header>
+                                                    <h2>
+                                                        Campos no frecuentes
+                                                    </h2>
+                                                </header>
+                                                <section>
+                                                    <div class="form-group">
+                                                        <label for="extra2">Extra 2:</label>
+                                                        <input name="extra2" type="text" id="extra2">
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="extra3">Extra 3:</label>
+                                                        <input name="extra3" type="text" id="extra3">
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="extra4">Extra 4:</label>
+                                                        <input name="extra4" type="text" id="extra4">
+                                                    </div>
+                                                </section>
+                                            </li>
+                                        </ul>
+
                                     </fieldset>
                                 </section>
                             </li>
@@ -663,6 +729,7 @@
 
                             <li class="form_contraentrega">
                                 <input type="checkbox" checked>
+                                <i class="expand"></i>
                                 <header>
                                     <h2>
                                         <i class="list-item">4</i>
@@ -726,6 +793,7 @@
 
                             <li class="form_contraentrega">
                                 <input type="checkbox" checked>
+                                <i class="expand"></i>
                                 <header>
                                     <h2>
                                         <i class="list-item">5</i>
@@ -814,13 +882,13 @@
 
                         <fieldset>
                             <div class="form-group">
-                                <a class="button small warning show-modal">
+                                <a class="button small warning" show-modal="title">
                                     Guardar formulario
                                 </a>
                                 <!--<button class="small warning">
                                     Limpiar campos
                                 </button>-->
-                                <button class="small next">
+                                <button class="button small next">
                                     Enviar
                                 </button>
                             </div>                            
@@ -834,19 +902,16 @@
         </div>
 
 
-        <dialog class="mdl-dialog options">
+        <dialog class="mdl-dialog options" title="dialog-title" reset-form="true">
             <div class="mdl-dialog__content">
                 <p>
                     Desde este dialogo puede guardar su formulario sin modificar
                     algun otro recien visualizado.
-                    Si necesita un nuevo formulario recuerde siempre guardar el 
-                    nombre de la nueva configuración
-                    Si desea alguna otra configuración porfavor solicitela.
                 </p>
-                <form action="#" name="">
+                <form action="#" name="extraData">
                     <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                        <input class="mdl-textfield__input" type="text" id="sample3">
-                        <label class="mdl-textfield__label" for="sample3">Titulo del formulario...</label>
+                        <input class="mdl-textfield__input" type="text" name="title" id="title-form">
+                        <label class="mdl-textfield__label" for="title-form">Titulo del formulario...</label>
                     </div>
                     <div class="mdl-dialog__actions mdl-dialog__actions--full-width">
                         <a class="mdl-button close">Cancelar</a>
@@ -857,10 +922,40 @@
 
         </dialog>
 
+        <dialog class="mdl-dialog options" title="dialog-options">
+            <div class="mdl-dialog__content">
+                <p>
+                    Recuerde que este JSON son todos los formularios que ha realizado hasta el momento
+                </p>
+                <p>
+                    Si el JSON es guardado incorrectamente <span class="danger">podría perder la información</span>
+                </p>
+
+                <form action="#">
+                    <div class="mdl-textfield mdl-js-textfield">
+                        <textarea class="mdl-textfield__input" type="text" rows="10" name="json"></textarea>
+                        <label class="mdl-textfield__label" for="address">Full JSON</label>
+                    </div>
+
+                    <div class="mdl-dialog__actions mdl-dialog__actions--full-width">
+                        <a class="mdl-button close">Cancelar</a>
+                        <a class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent save">Guardar</a>
+                    </div>
+                </form>
+            </div>
+
+        </dialog>
+
+        <div id="demo-toast-example" class="mdl-js-snackbar mdl-snackbar">
+            <div class="mdl-snackbar__text"></div>
+            <button class="mdl-snackbar__action" type="button"></button>
+        </div>
+
         <script src="assets/js/analytics.js" type="text/javascript"></script>
         <script src="assets/js/jquery.min.js" type="text/javascript"></script>
         <script src="assets/js/persist-min.js" type="text/javascript"></script>
         <script src="vendor/material-design-lite/material.min.js" type="text/javascript"></script>
+        <script src="vendor/dialog-polyfill-0.4.3/dialog-polyfill.js" type="text/javascript"></script>
 
         <script src="assets/js/main.js" type="text/javascript"></script>
     </body>

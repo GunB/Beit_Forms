@@ -12,8 +12,19 @@
     }
 }
 
+.not-frecuent{
+    padding: $interlineado * 3;
+    section{
+        border: {
+            bottom: 1px solid rgba($opaque-black, 0.5);
+            left: 1px solid rgba($opaque-black, 0.5);
+            right: 1px solid rgba($opaque-black, 0.5);
+        }
+    }
+}
+
 @media only screen and (max-width : $desktop-width) {
-    
+
 }
 
 /*==================================================

@@ -93,7 +93,6 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
 .accordion ul {
   list-style: none;
   perspective: 900;
-  padding: 0;
   margin: 0; }
   .accordion ul li {
     position: relative;
@@ -220,8 +219,7 @@ body {
   background-size: cover; }
 
 h1, h2 {
-  color: black;
-  text-transform: lowercase; }
+  color: black; }
 
 h1 {
   font-size: 2rem;
@@ -308,7 +306,7 @@ a, summary {
   flex-wrap: wrap;
   width: 100%;
   padding: 7px; }
-  .form .form-group * {
+  .form .form-group > * {
     width: 50%; }
   .form .form-group a.help {
     width: 100%;
@@ -320,6 +318,23 @@ a, summary {
     padding: 0;
     margin: 0;
     border: 0; }
+  .form .form-group > div {
+    display: -webkit-inline-box;
+    display: -webkit-inline-flex;
+    display: -moz-inline-flex;
+    display: -ms-inline-flexbox;
+    display: inline-flex;
+    flex-grow: 1;
+    width: 50%; }
+    .form .form-group > div * {
+      width: 100%;
+      margin: 0 7px; }
+      .form .form-group > div *:first-child {
+        margin-left: 0; }
+      .form .form-group > div *:last-child {
+        margin-right: 0; }
+      .form .form-group > div *.button {
+        width: auto; }
 
 header {
   padding: 10px;
@@ -365,6 +380,13 @@ input.ng-invalid.ng-touched {
     margin-bottom: 70px;
     margin-left: auto;
     margin-right: auto; } }
+.not-frecuent {
+  padding: 21px; }
+  .not-frecuent section {
+    border-bottom: 1px solid rgba(151, 151, 151, 0.5);
+    border-left: 1px solid rgba(151, 151, 151, 0.5);
+    border-right: 1px solid rgba(151, 151, 151, 0.5); }
+
 /*==================================================
 =            Bootstrap 3 Media Queries             =
 ==================================================*/
@@ -382,11 +404,11 @@ input.ng-invalid.ng-touched {
 /* Custom, iPhone Retina */
 body > h1 {
   background: #00afb9; }
-body .form-group:nth-child(2n+1) {
-  background: rgba(0, 175, 185, 0.035); }
 body .form input[type=text]:focus, body .form input[type=number]:focus, body .form button:focus, body .form textarea:focus {
   border-color: #00afb9;
   box-shadow: 0 0 5px #00afb9; }
+body .form .form-group:nth-child(2n+1) {
+  background: rgba(0, 175, 185, 0.035); }
 body header {
   background: rgba(0, 175, 185, 0.07); }
 body asside {
@@ -395,11 +417,11 @@ body .button, body button {
   background-color: #97c30e; }
 body.orange > h1 {
   background: #f57301; }
-body.orange .form-group:nth-child(2n+1) {
-  background: rgba(245, 115, 1, 0.07); }
 body.orange .form input[type=text]:focus, body.orange .form input[type=number]:focus, body.orange .form button:focus, body.orange .form textarea:focus {
   border-color: #f57301;
   box-shadow: 0 0 5px #f57301; }
+body.orange .form .form-group:nth-child(2n+1) {
+  background: rgba(245, 115, 1, 0.07); }
 body.orange header {
   background: rgba(245, 115, 1, 0.3); }
 body.orange .form1 .button, body.orange .form1 button {
@@ -411,5 +433,12 @@ body.orange .form1 .button, body.orange .form1 button {
   background-color: gold !important; }
 .button.next, button.next {
   background-color: #97c30e !important; }
+
+span.danger {
+  color: red !important; }
+span.warning {
+  color: gold !important; }
+span.next {
+  color: #97c30e !important; }
 
 /*# sourceMappingURL=main.css.map */

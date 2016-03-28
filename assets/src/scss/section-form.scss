@@ -16,7 +16,7 @@
         width: 100%;
         padding: $interlineado;
 
-        *{
+        >*{
             width: 50%;
         }
         a.help{
@@ -33,6 +33,25 @@
             margin: 0;
             border: 0;
             //width: 25px;
+        }
+        >div{
+            @include inline-flex;
+            flex-grow: 1;
+            width: 50%;
+            *{
+                width: 100%;
+                margin: 0 $interlineado;
+                &:first-child{
+                    margin-left: 0;
+                }
+                &:last-child{
+                    margin-right: 0;
+                }
+                
+                &.button{
+                    width: auto;
+                }
+            }
         }
     }//*/
 }

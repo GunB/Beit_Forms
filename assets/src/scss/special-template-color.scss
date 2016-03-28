@@ -3,13 +3,13 @@ body {
         >h1{
             background: $green;
         }
-        .form-group:nth-child(2n+1){
-            background: rgba($green, 0.035);
-        }
         .form{
             input[type=text]:focus,input[type=number]:focus, button:focus, textarea:focus {
                 border-color: $green;
                 box-shadow: 0 0 5px $green;
+            }
+            .form-group:nth-child(2n+1){
+                background: rgba($green, 0.035);
             }
         }
         header{
@@ -29,13 +29,14 @@ body {
         >h1{
             background: $alternative-1;
         }
-        .form-group:nth-child(2n+1){
-            background: rgba($alternative-1, 0.07);
-        }
+
         .form{
             input[type=text]:focus,input[type=number]:focus, button:focus, textarea:focus {
                 border-color: $alternative-1;
                 box-shadow: 0 0 5px $alternative-1;
+            }
+            .form-group:nth-child(2n+1){
+                background: rgba($alternative-1, 0.07);
             }
         }
         header{
@@ -58,5 +59,17 @@ body {
     }
     &.next{
         background-color: $next !important;
+    }
+}
+
+span{
+    &.danger{
+        color: $danger !important;
+    }
+    &.warning{
+        color: $warning !important;
+    }
+    &.next{
+        color: $next !important;
     }
 }
