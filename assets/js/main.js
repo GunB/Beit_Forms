@@ -491,7 +491,7 @@ $(document).ready(function () {
     $(".form").on("change", "[name=test]", function () {
         toogle_tamplate(this);
     });
-    toogle_tamplate(this);
+    toogle_tamplate($("#pruebaAs")[0]);
 });
 
 function toogle_tamplate(chkbox) {

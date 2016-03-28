@@ -209,7 +209,13 @@
                                             </div>
                                         </div>
 
-
+                                        <div class="form-group">
+                                            <label for="lng">Idioma</label>
+                                            <select name="lng" id="algoritmo">
+                                                <option value="">Ninguno</option>
+                                                <option value="ESP" selected="">ESP</option>
+                                            </select>
+                                        </div>
 
                                         <ul class="accordion not-frecuent">
                                             <li>
@@ -221,6 +227,15 @@
                                                     </h2>
                                                 </header>
                                                 <section>
+
+                                                    <div class="form-group">
+                                                        <label for="clientNumber">Número de cliente:</label>
+                                                        <input name="clientNumber" type="text" id="clientNumber">
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="zipcode">Código postal:</label>
+                                                        <input name="zipcode" type="text" id="zipcode">
+                                                    </div>
 
                                                     <div class="form-group">
                                                         <label for="expirationDate">Fecha Expiración:</label>
@@ -235,6 +250,11 @@
                                                     <div class="form-group">
                                                         <label for="additionalValue">Valor adicional:</label>
                                                         <input name="additionalValue" type="text" id="additionalValue">
+                                                    </div>
+
+                                                    <div class="form-group">
+                                                        <label for="additionalValueFirstPay">Valor adicional (Primer pago):</label>
+                                                        <input name="additionalValue" type="text" id="additionalValueFirstPay">
                                                     </div>
 
                                                     <div class="form-group">
@@ -280,6 +300,16 @@
                                                     <div class="form-group">
                                                         <label for="sourceUrl">Url Origen (Botón de Pago):</label>
                                                         <input name="sourceUrl" type="text" id="sourceUrl">
+                                                    </div>
+
+                                                    <div class="form-group">
+                                                        <label for="source">Origen (Botón de Pago):</label>
+                                                        <input name="source" type="text" id="source">
+                                                    </div>
+
+                                                    <div class="form-group">
+                                                        <label for="buttonType">Tipo (Botón de Pago):</label>
+                                                        <input name="buttonType" type="text" id="buttonType">
                                                     </div>
 
                                                     <div class="form-group">
@@ -639,6 +669,16 @@
                                         </div>
 
                                         <div class="form-group">
+                                            <label for="displayBuyerComments">Solicitar comentarios del comprador:</label>
+                                            <input name="displayBuyerComments" type="checkbox" id="displayBuyerComments" value="1">
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="buyerCommentsLabel">Etiqueta de comentarios del comprador:</label>
+                                            <input name="buyerCommentsLabel" type="checkbox" id="buyerCommentsLabel">
+                                        </div>
+
+                                        <div class="form-group">
                                             <label for="aplicaPagoContraEntrega">Pago contra entrega:</label>
                                             <input name="isCashOnDeliveryApply" type="checkbox" id="aplicaPagoContraEntrega" value="1">
                                         </div>
@@ -723,6 +763,11 @@
                                             <input name="officeTelephone" type="text" id="officeTelephone">
                                         </div>
 
+                                        <div class="form-group">
+                                            <label for="telephone">Teléfono:</label>
+                                            <input name="telephone" type="text" id="telephone">
+                                        </div>
+
                                     </fieldset>
                                 </section>
                             </li>
@@ -746,6 +791,16 @@
                                         <div class="form-group">
                                             <label for="payerEmail">Correo Electrónico:</label>
                                             <input name="payerEmail" type="text" id="payerEmail">
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="payerPhone">Teléfono:</label>
+                                            <input name="payerPhone" type="text" id="payerPhone">
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="payerPostalCode">Código postal:</label>
+                                            <input name="payerPostalCode" type="text" id="payerPostalCode">
                                         </div>
 
                                         <div class="form-group">
@@ -864,8 +919,20 @@
                                             <input name="shippingValue" type="text" id="shippingValue">
                                         </div>
                                         <div class="form-group">
+                                            <label for="payerShippingFullname">Nombre completo a donde se envía:</label>
+                                            <input name="payerShippingFullname" type="text" id="payerShippingFullname">
+                                        </div>
+                                        <div class="form-group">
                                             <label for="payerShippingPostalCode">Código Postal envío:</label>
                                             <input name="payerShippingPostalCode" type="text" id="payerShippingPostalCode">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="payerShippingTelephone">Teléfono envío:</label>
+                                            <input name="payerShippingTelephone" type="text" id="payerShippingTelephone">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="payerShippingEmailAddress">Correo electrónico envío:</label>
+                                            <input name="payerShippingEmailAddress" type="text" id="payerShippingEmailAddress">
                                         </div>
                                         <div class="form-group">
                                             <label for="observationsReceivingShipment">Observaciones de Envío:</label>
@@ -875,6 +942,99 @@
                                             <label for="aplicaCourier">Aplica Courier:</label>
                                             <input name="isCourierApply" type="checkbox" id="aplicaCourier" value="1">
                                         </div>
+                                    </fieldset>
+                                </section>
+                            </li>
+
+                            <li>
+                                <input type="checkbox" checked>
+                                <i class="expand"></i>
+                                <header>
+                                    <h2>
+                                        <i class="list-item">6</i>
+                                        Servicio PSE
+                                    </h2>
+                                </header>
+                                <section>
+                                    <fieldset>
+                                        <div class="form-group">
+                                            <label for="pseServiceCode">PSE Codigo de servicio:</label>
+                                            <input name="pseServiceCode" type="text" id="pseServiceCode">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="pseReference1">Referencia 1:</label>
+                                            <input name="pseReference1" type="text" id="pseReference1">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="pseReference2">Referencia 2:</label>
+                                            <input name="pseReference2" type="text" id="pseReference2">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="pseReference3">Referencia 3:</label>
+                                            <input name="pseReference3" type="text" id="pseReference3">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="validateAntifraudModule">Validar módulo antifraude:</label>
+                                            <input name="validateAntifraudModule" type="text" id="validateAntifraudModule">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="vadility">Validez:</label>
+                                            <input name="vadility" type="text" id="vadility">
+                                        </div>
+                                    </fieldset>
+                                </section>
+                            </li>
+
+                            <li>
+                                <input type="checkbox" checked>
+                                <i class="expand"></i>
+                                <header>
+                                    <h2>
+                                        <i class="list-item">7</i>
+                                        Pagos periódicos
+                                    </h2>
+                                </header>
+                                <section>
+                                    <fieldset>
+                                        <div class="form-group">
+                                            <label for="firstPayValue">Valor del primer pago:</label>
+                                            <input name="firstPayValue" type="text" id="firstPayValue">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="taxFirstPay">Taza primer pago:</label>
+                                            <input name="taxFirstPay" type="text" id="taxFirstPay">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="firstPayReturnBase">Base de retorno de primer pago:</label>
+                                            <input name="firstPayReturnBase" type="text" id="firstPayReturnBase">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="internalType">Intervalo de pago:</label>
+                                            <select name="internalType" id="internalType">
+                                                <option selected></option>
+                                                <option value="MONTHLY">Mensual</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="periodicity">Peridiocidad:</label>
+                                            <select name="periodicity" id="periodicity">
+                                                <option selected></option>
+                                                <option value="MONTHLY">Mensual</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="firstPayDate">Fecha de primer pago:</label>
+                                            <input name="firstPayDate" type="text" id="firstPayDate">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="numberOfPayments">Número de pagos:</label>
+                                            <input name="numberOfPayments" type="text" id="numberOfPayments">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="inmediatePayments">Pago inmediato:</label>
+                                            <input name="inmediatePayments" type="text" id="inmediatePayments">
+                                        </div>
+
                                     </fieldset>
                                 </section>
                             </li>
@@ -932,7 +1092,7 @@
                 </p>
 
                 <form action="#">
-                    <div class="mdl-textfield mdl-js-textfield">
+                    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                         <textarea class="mdl-textfield__input" type="text" rows="10" name="json"></textarea>
                         <label class="mdl-textfield__label" for="address">Full JSON</label>
                     </div>
