@@ -228,9 +228,9 @@ a, summary {
 .form input[type=text], .form input[type=number], .form textarea, .form select {
   outline: none;
   border: 1px solid #979797;
-  -moz-border-radius: 0.5rem;
-  -webkit-border-radius: 0.5rem;
-  border-radius: 0.5rem;
+  -moz-border-radius: 0.25rem;
+  -webkit-border-radius: 0.25rem;
+  border-radius: 0.25rem;
   padding: 10px;
   margin: 7px 0px;
   display: inline-block;
@@ -328,9 +328,9 @@ input.ng-invalid.ng-touched {
   display: none; }
 
 /* Custom, iPhone Retina */
-@media only screen and (min-width: 1210px) {
+@media only screen and (min-width: 1050px) {
   .main {
-    width: 1210px;
+    width: 1050px;
     margin-top: 70px;
     margin-bottom: 70px;
     margin-left: auto;
@@ -382,11 +382,11 @@ body.orange header {
 body.orange .form1 .button, body.orange .form1 button {
   background-color: #f57301; }
 
-.button.danger, button.danger {
+.button.danger, button.danger, mdl-button.danger {
   background-color: red !important; }
-.button.warning, button.warning {
+.button.warning, button.warning, mdl-button.warning {
   background-color: gold !important; }
-.button.next, button.next {
+.button.next, button.next, mdl-button.next {
   background-color: #97c30e !important; }
 
 span.danger {

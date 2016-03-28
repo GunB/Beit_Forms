@@ -1,6 +1,6 @@
 /* Define media queries */
 
-$desktop-width-main     : 960px;
+$desktop-width-main     : 800px;
 $desktop-width-side     : 250px;
 
 $desktop-width          : $desktop-width-main + $desktop-width-side;
@@ -45,7 +45,7 @@ $font-family            : 'Helvetica Neue', Helvetica, Arial, sans-serif;
 //$background-inner       : image-url("inner.jpg");
 //$background-outter      : image-url("outter.jpg");
 
-$border-radius          : 0.5rem;
+$border-radius          : 0.25rem;
 $icon-list-bg           : black;
 
 //$menu-width             : 250px!default;

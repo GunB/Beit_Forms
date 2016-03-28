@@ -65,10 +65,13 @@
                                         <p></p>
                                     </details>
                                     <nav>
-                                        <button class="mdl-button mdl-js-button mdl-button--fab watch next">
-                                            <i class="material-icons">visibility</i>
+                                        <button class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab watch next">
+                                            <i class="material-icons">play_arrow</i>
                                         </button>
-                                        <button class="mdl-button mdl-js-button mdl-button--fab danger">
+                                        <button class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab watch">
+                                            <i class="material-icons">edit</i>
+                                        </button>
+                                        <button class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab danger">
                                             <i class="material-icons">delete</i>
                                         </button>
                                     </nav>
@@ -80,8 +83,6 @@
                 </nav>
             </div>
 
-
-
             <main class="mdl-layout__content">
                 <section class="main">
                     <form class="accordion form form1" name="form1">
@@ -91,14 +92,14 @@
                                 <i class="expand"></i>
                                 <header>
                                     <h2>
-                                        <i class="list-item">.</i>
+
                                         Configuraciones iniciales
                                     </h2>
                                 </header>
                                 <section>
                                     <fieldset>
                                         <div class="form-group">
-                                            <label for="prueba">Pruebas:</label>
+                                            <label for="prueba">Modo pruebas:</label>
                                             <input name="test" type="checkbox" id="prueba" value="1">
                                         </div>
                                     </fieldset>
@@ -109,7 +110,7 @@
                                 <i class="expand"></i>
                                 <header>
                                     <h2>
-                                        <i class="list-item">1</i>
+
                                         Datos realizar el pago
                                     </h2>
                                 </header>
@@ -205,7 +206,7 @@
                                             <label for="firma">Firma digital:</label>
                                             <div>
                                                 <input name="signature" type="text" id="firma">
-                                                <a href="#" onclick="generarFirma()" class="button small help"><i class="material-icons">sync</i></a>
+                                                <a href="#" onclick="generarFirma()" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">Genera</a>
                                             </div>
                                         </div>
 
@@ -223,7 +224,8 @@
                                                 <i class="expand"></i>
                                                 <header>
                                                     <h2>
-                                                        Campos no frecuentes
+                                                        <i class="material-icons">grade</i>
+                                                        Personalización WebCheckout
                                                     </h2>
                                                 </header>
                                                 <section>
@@ -362,6 +364,23 @@
                                                         <label for="taxAdministrativeFeeReturnBase">Base devolución IVA Tarifa Administrativa:</label>
                                                         <input name="taxAdministrativeFeeReturnBase" type="text" id="taxAdministrativeFeeReturnBase">
                                                     </div>
+
+                                                    <div class="form-group">
+                                                        <label for="extra1">Extra 1:</label>
+                                                        <input name="extra1" type="text" id="extra1">
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="extra2">Extra 2:</label>
+                                                        <input name="extra2" type="text" id="extra2">
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="extra3">Extra 3:</label>
+                                                        <input name="extra3" type="text" id="extra3">
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="extra4">Extra 4:</label>
+                                                        <input name="extra4" type="text" id="extra4">
+                                                    </div>
                                                 </section>
                                             </li>
                                         </ul>
@@ -374,7 +393,7 @@
                                 <i class="expand"></i>
                                 <header>
                                     <h2>
-                                        <i class="list-item">2</i>
+
                                         DATOS DEL ENVÍO
                                     </h2>
                                 </header>
@@ -683,37 +702,6 @@
                                             <input name="isCashOnDeliveryApply" type="checkbox" id="aplicaPagoContraEntrega" value="1">
                                         </div>
 
-
-                                        <div class="form-group">
-                                            <label for="extra1">Extra 1:</label>
-                                            <input name="extra1" type="text" id="extra1">
-                                        </div>
-                                        <ul class="accordion not-frecuent">
-                                            <li>
-                                                <input type="checkbox" checked>
-                                                <i class="expand"></i>
-                                                <header>
-                                                    <h2>
-                                                        Campos no frecuentes
-                                                    </h2>
-                                                </header>
-                                                <section>
-                                                    <div class="form-group">
-                                                        <label for="extra2">Extra 2:</label>
-                                                        <input name="extra2" type="text" id="extra2">
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <label for="extra3">Extra 3:</label>
-                                                        <input name="extra3" type="text" id="extra3">
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <label for="extra4">Extra 4:</label>
-                                                        <input name="extra4" type="text" id="extra4">
-                                                    </div>
-                                                </section>
-                                            </li>
-                                        </ul>
-
                                     </fieldset>
                                 </section>
                             </li>
@@ -722,7 +710,7 @@
                                 <i class="expand"></i>
                                 <header>
                                     <h2>
-                                        <i class="list-item">3</i>
+
                                         DATOS DE COMPRADOR: (OPCIONAL)
                                     </h2>
                                 </header>
@@ -777,7 +765,7 @@
                                 <i class="expand"></i>
                                 <header>
                                     <h2>
-                                        <i class="list-item">4</i>
+
                                         DATOS DE PAGADOR: (OPCIONAL)
                                     </h2>
                                 </header>
@@ -851,7 +839,7 @@
                                 <i class="expand"></i>
                                 <header>
                                     <h2>
-                                        <i class="list-item">5</i>
+
                                         DATOS DE COMERCIO REMITENTE:
                                     </h2>
                                 </header>
@@ -951,7 +939,7 @@
                                 <i class="expand"></i>
                                 <header>
                                     <h2>
-                                        <i class="list-item">6</i>
+
                                         Servicio PSE
                                     </h2>
                                 </header>
@@ -990,7 +978,7 @@
                                 <i class="expand"></i>
                                 <header>
                                     <h2>
-                                        <i class="list-item">7</i>
+
                                         Pagos periódicos
                                     </h2>
                                 </header>
@@ -1042,16 +1030,16 @@
 
                         <fieldset>
                             <div class="form-group">
-                                <a class="button small warning" show-modal="title">
+                                <a class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent warning" show-modal="title">
                                     Guardar formulario
                                 </a>
                                 <!--<button class="small warning">
                                     Limpiar campos
                                 </button>-->
-                                <button class="button small next">
+                                <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
                                     Enviar
                                 </button>
-                            </div>                            
+                            </div>
                         </fieldset>
                     </form>
                 </section>
@@ -1065,8 +1053,7 @@
         <dialog class="mdl-dialog options" title="dialog-title" reset-form="true">
             <div class="mdl-dialog__content">
                 <p>
-                    Desde este dialogo puede guardar su formulario sin modificar
-                    algun otro recien visualizado.
+                    ¿Desea guardar este formulario?
                 </p>
                 <form action="#" name="extraData">
                     <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">

@@ -50,7 +50,7 @@ body {
     }
 }
 
-.button, button{
+.button, button, mdl-button{
     &.danger{
         background-color: $danger !important;
     }

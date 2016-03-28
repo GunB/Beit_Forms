@@ -95,7 +95,7 @@ function action_form(element, v3) {
             case 'undefined':
 
             default :
-                if (!entro) {
+                /*if (!entro) {
                     element = element.slice(0, element.length - 2) + "[]']";
                     if ($(element).exists()) {
                         str_compare = $(element)[0].type;
@@ -107,7 +107,7 @@ function action_form(element, v3) {
                 } else {
                     //console.warn($(element));
                     correcto = false;
-                }
+                }*/
 
                 break;
         }
@@ -483,10 +483,10 @@ referenceCode();
 
 //<editor-fold defaultstate="collapsed" desc="UI - UX Functions">
 $(document).ready(function () {
-    $("form").on("change", "#aplicaPagoContraEntrega", function () {
+    /*$("form").on("change", "#aplicaPagoContraEntrega", function () {
         toggle(this, ".form_contraentrega");
     });
-    toggle($("#aplicaPagoContraEntrega")[0], ".form_contraentrega");
+    toggle($("#aplicaPagoContraEntrega")[0], ".form_contraentrega");*/
 
     $(".form").on("change", "[name=test]", function () {
         toogle_tamplate(this);
