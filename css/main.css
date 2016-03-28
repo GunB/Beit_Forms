@@ -160,6 +160,51 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
   100% {
     transform-origin: top center;
     transform: rotateX(0deg); } }
+.mdl-dialog {
+  border: none;
+  box-shadow: 0 9px 46px 8px rgba(0, 0, 0, 0.14), 0 11px 15px -7px rgba(0, 0, 0, 0.12), 0 24px 38px 3px rgba(0, 0, 0, 0.2);
+  width: 280px; }
+
+.mdl-dialog__title {
+  padding: 24px 24px 0;
+  margin: 0;
+  font-size: 2.5rem; }
+
+.mdl-dialog__actions {
+  padding: 8px 8px 8px 24px;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: row-reverse;
+  -ms-flex-direction: row-reverse;
+  flex-direction: row-reverse;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap; }
+
+.mdl-dialog__actions > * {
+  margin-right: 8px;
+  height: 36px; }
+
+.mdl-dialog__actions > *:first-child {
+  margin-right: 0; }
+
+.mdl-dialog__actions--full-width {
+  padding: 0 0 8px 0; }
+
+.mdl-dialog__actions--full-width > * {
+  height: 48px;
+  -webkit-flex: 0 0 100%;
+  -ms-flex: 0 0 100%;
+  flex: 0 0 100%;
+  padding-right: 16px;
+  margin-right: 0;
+  text-align: right; }
+
+.mdl-dialog__content {
+  padding: 20px 24px 24px 24px;
+  color: rgba(0, 0, 0, 0.54); }
+
 /************ develop ******************/
 /********** BODY **************/
 body {
@@ -190,7 +235,6 @@ h1 {
   margin-right: 7px; }
 
 h2 {
-  font-size: 26px;
   line-height: 34px;
   font-weight: 300;
   letter-spacing: 1px;
@@ -201,9 +245,9 @@ label {
   vertical-align: text-top;
   flex-grow: 1;
   color: black;
-  font-weight: bold; }
+  font-size: 11pt; }
 
-a {
+a, summary {
   cursor: pointer; }
 
 /********** FORM CONTROLS **************/
@@ -228,7 +272,7 @@ a {
   margin: 0;
   border: 0; }
 
-input[type=text], input[type=number], textarea, select {
+.form input[type=text], .form input[type=number], .form textarea, .form select {
   outline: none;
   border: 1px solid #979797;
   -moz-border-radius: 0.5rem;
@@ -238,42 +282,13 @@ input[type=text], input[type=number], textarea, select {
   margin: 7px 0px;
   display: inline-block;
   width: available; }
-
-input[type=text]:focus, input[type=number]:focus, button:focus, textarea:focus {
+.form input[type=text]:focus, .form input[type=number]:focus, .form button:focus, .form textarea:focus {
   -webkit-transition: all 0.30s ease-in-out;
   -moz-transition: all 0.30s ease-in-out;
   -ms-transition: all 0.30s ease-in-out;
   -o-transition: all 0.30s ease-in-out;
   box-shadow: 0 0 5px #979797;
   border: 1px solid #979797; }
-
-main {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -moz-flex;
-  display: -ms-flexbox;
-  display: flex;
-  align-items: center;
-  align-items: flex-start; }
-  main aside {
-    border-width: 0.1rem;
-    border-style: solid;
-    padding-bottom: 7px; }
-    main aside .user-saved .form-saved {
-      margin: 7px;
-      -moz-border-radius: 0.5rem;
-      -webkit-border-radius: 0.5rem;
-      border-radius: 0.5rem;
-      border-width: 1px;
-      border-style: solid; }
-      main aside .user-saved .form-saved header {
-        -moz-border-radius: 0.5rem;
-        -webkit-border-radius: 0.5rem;
-        border-radius: 0.5rem; }
-      main aside .user-saved .form-saved section {
-        padding: 14px; }
-    main aside nav {
-      text-align: right; }
 
 .form fieldset {
   border: 1px solid rgba(151, 151, 151, 0.5);
@@ -295,7 +310,7 @@ main {
   padding: 7px; }
   .form .form-group * {
     width: 50%; }
-  .form .form-group a {
+  .form .form-group a.help {
     width: 100%;
     text-align: right;
     padding: 10px; }
@@ -344,76 +359,12 @@ input.ng-invalid.ng-touched {
 
 /* Custom, iPhone Retina */
 @media only screen and (min-width: 1210px) {
-  main {
-    margin: 3rem auto; }
-
-  .form1 {
-    width: 960px;
-    -webkit-box-ordinal-group: 2;
-    -moz-box-ordinal-group: 2;
-    -ms-flex-order: 1;
-    -webkit-order: 1;
-    order: 1;
-    margin: 0 auto; }
-
   .main {
-    width: 80%; }
-
-  aside {
-    width: 20%;
-    right: 0%;
-    top: 5%;
-    transform: translate(0%, 0%);
-    -webkit-box-ordinal-group: 3;
-    -moz-box-ordinal-group: 3;
-    -ms-flex-order: 2;
-    -webkit-order: 2;
-    order: 2; }
-    aside .forms {
-      height: available;
-      overflow: auto; } }
-@media only screen and (max-width: 1210px) {
-  main {
-    flex-wrap: wrap;
-    -webkit-box-ordinal-group: 2;
-    -moz-box-ordinal-group: 2;
-    -ms-flex-order: 1;
-    -webkit-order: 1;
-    order: 1; }
-
-  .main {
-    width: 100%;
-    -webkit-box-ordinal-group: 3;
-    -moz-box-ordinal-group: 3;
-    -ms-flex-order: 2;
-    -webkit-order: 2;
-    order: 2; }
-
-  .form1 header h1, .form1 h2 {
-    font-size: 1rem; }
-
-  .form1 .form-group {
-    flex-wrap: wrap; }
-    .form1 .form-group input[type="text"], .form1 .form-group select {
-      width: available; }
-    .form1 .form-group label {
-      width: available;
-      font-size: 1rem;
-      font-weight: normal;
-      text-align: left; }
-
-  aside {
-    border-width: 0 !important;
-    width: 100%; }
-
-  .forms {
-    display: -webkit-inline-box;
-    display: -webkit-inline-flex;
-    display: -moz-inline-flex;
-    display: -ms-inline-flexbox;
-    display: inline-flex;
-    flex-wrap: wrap;
-    justify-content: center; } }
+    width: 1210px;
+    margin-top: 70px;
+    margin-bottom: 70px;
+    margin-left: auto;
+    margin-right: auto; } }
 /*==================================================
 =            Bootstrap 3 Media Queries             =
 ==================================================*/
@@ -433,7 +384,7 @@ body > h1 {
   background: #00afb9; }
 body .form-group:nth-child(2n+1) {
   background: rgba(0, 175, 185, 0.035); }
-body input[type=text]:focus, body input[type=number]:focus, body button:focus, body textarea:focus {
+body .form input[type=text]:focus, body .form input[type=number]:focus, body .form button:focus, body .form textarea:focus {
   border-color: #00afb9;
   box-shadow: 0 0 5px #00afb9; }
 body header {
@@ -446,7 +397,7 @@ body.orange > h1 {
   background: #f57301; }
 body.orange .form-group:nth-child(2n+1) {
   background: rgba(245, 115, 1, 0.07); }
-body.orange input[type=text]:focus, body.orange input[type=number]:focus, body.orange button:focus, body.orange textarea:focus {
+body.orange .form input[type=text]:focus, body.orange .form input[type=number]:focus, body.orange .form button:focus, body.orange .form textarea:focus {
   border-color: #f57301;
   box-shadow: 0 0 5px #f57301; }
 body.orange header {
@@ -455,8 +406,10 @@ body.orange .form1 .button, body.orange .form1 button {
   background-color: #f57301; }
 
 .button.danger, button.danger {
-  background-color: red; }
+  background-color: red !important; }
 .button.warning, button.warning {
-  background-color: orange; }
+  background-color: gold !important; }
+.button.next, button.next {
+  background-color: #97c30e !important; }
 
 /*# sourceMappingURL=main.css.map */

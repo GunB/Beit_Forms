@@ -65,15 +65,16 @@ function action_form(element, v3) {
     var correcto = true;
     var entro = false;
     var str_compare = $(element).prop('type');
+
     do {
         var sigue = false;
         //console.log(str_compare);
         switch (str_compare) {
             case 'checkbox':
-                $(element + "[value='" + v3 + "']").attr('checked', true).change();
+                $(element + "[value='" + v3 + "']").prop('checked', true).change();
                 break;
             case 'radio':
-                $(element + "[value='" + v3 + "']").attr('checked', true).change();
+                $(element + "[value='" + v3 + "']").prop('checked', true).change();
                 break;
             case 'textarea':
             case 'select-one':
@@ -457,6 +458,15 @@ function generarFirma() {
         document.form1.firma.value = hex_md5(utf8Encode(cadenaAFirmar));
     }
 }
+
+function referenceCode(){
+    if(document.form1.referenceCode.value === ""){
+        var ts = Math.round((new Date()).getTime() / 1000);
+        document.form1.referenceCode.value = ts;
+    }
+}
+
+referenceCode();
 //</editor-fold>
 
 //<editor-fold defaultstate="collapsed" desc="UI - UX Functions">
@@ -464,7 +474,7 @@ $(document).ready(function () {
     $("form").on("change", "#aplicaPagoContraEntrega", function () {
         toggle(this, ".form_contraentrega");
     });
-    toggle(this, ".form_contraentrega");
+    toggle($("#aplicaPagoContraEntrega")[0], ".form_contraentrega");
 
     $(".form").on("change", "[name=test]", function () {
         toogle_tamplate(this);
@@ -480,7 +490,7 @@ function toogle_tamplate(chkbox) {
     }
 
     $("[name=test]")
-            .attr("checked", chkbox.checked)
+            //.attr("checked", chkbox.checked)
             .prop('checked', chkbox.checked);
 }
 
@@ -531,11 +541,6 @@ $(function () {
         deleteConfig(index);
     });
 
-    $(".options").on("click", ".save", function () {
-        saveConfig("[name=form1]");
-        paintConfigs();
-    });
-
     $(".forms").on("click", "button.watch", function () {
         var that = $(this);
         var index = that.parents("[form-id]").eq(0).attr("form-id");
@@ -543,6 +548,26 @@ $(function () {
     });
 
 });
+
+(function () {
+    var dialog = document.querySelector('dialog');
+    var showModalButton = document.querySelector('.show-modal');
+    if (!dialog.showModal) {
+        dialogPolyfill.registerDialog(dialog);
+    }
+    showModalButton.addEventListener('click', function () {
+        dialog.querySelector('form').reset();
+        dialog.showModal();
+    });
+    dialog.querySelector('.close').addEventListener('click', function () {
+        dialog.close();
+    });
+    dialog.querySelector('.save').addEventListener('click', function () {
+        saveConfig("[name=form1]");
+        paintConfigs();
+        dialog.close();
+    });
+}());
 
 //<editor-fold defaultstate="collapsed" desc="CRUD Configs">
 var initConfigs = function () {
@@ -624,9 +649,15 @@ var saveLocal = function (configs) {
 
 var watchConfig = function (index) {
     var selector = "[name=form1]";
+
+    $(selector).trigger("reset");
+
     $.each(configs[index], function (k, v) {
         action_form(selector + " " + "[name=" + k + "]", v);
     });
+    
+    toogle_tamplate($("[name=test]",selector)[0]);
+    toggle($("#aplicaPagoContraEntrega")[0], ".form_contraentrega");
 };
 
 //</editor-fold>

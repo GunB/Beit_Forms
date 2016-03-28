@@ -1,88 +1,20 @@
 
 /* Custom, iPhone Retina */ 
 @media only screen and (min-width : $desktop-width) {
-
-    main{
-        margin: 3rem auto;
-        //width: $desktop-width;
-        //padding-right: $desktop-width-side;
-    }
-
-    .form1{
-        width: $desktop-width-main;
-        @include flex-order(1);
-        margin: 0 auto;
-    }
-    
     .main{
-        width: 80%;
-    }
-
-    aside{
-        //width: $desktop-width-side;
-        //position: fixed;
-        width: 20%;
-        right: 0%;
-        top: 5%;
-        transform: translate(0%, 0%);
-        @include flex-order(2);
-        .forms{
-            height: available;
-            overflow: auto;
-        }
-        button, .button{
-            //width: 100%;
+        width: $desktop-width;
+        margin: {
+            top: $interlineado * 10;;
+            bottom: $interlineado * 10;
+            left: auto;
+            right: auto;
         }
     }
-
-
 }
 
 @media only screen and (max-width : $desktop-width) {
-    main{
-        flex-wrap: wrap;
-        @include flex-order(1);
-    }
     
-    .main{
-        width: 100%;
-        @include flex-order(2);
-    }
-    
-    .form1{
-        header h1, h2{
-            font-size: 1rem;
-        }
-    }
-    .form1 .form-group{
-        flex-wrap: wrap;
-        input[type="text"], select{
-            width: available;
-        }
-        label{
-            width: available;
-            font-size: 1rem;
-            font-weight: normal;
-            text-align: left;
-        }
-    }
-    
-    aside{
-        border: {
-            width: 0 !important;
-        }
-        width: 100%;
-    }
-    .forms{
-        @include inline-flex;
-        flex-wrap: wrap;
-        justify-content: center;
-    }
 }
-
-
-
-
 
 /*==================================================
 =            Bootstrap 3 Media Queries             =
